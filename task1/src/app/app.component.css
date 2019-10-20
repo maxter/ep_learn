@@ -1,0 +1,50 @@
+
+.header {
+  margin:0px;
+  text-align: center;
+  background:#324667;
+  color: white;
+  font-size: 30px;
+  padding:15px;
+  height:40px;
+  vertical-align: middle;
+}
+
+
+
+.nav {
+  margin:0px;
+  padding:0px;
+  text-align: left;
+  background: #FFFFFF;
+  font-size: 14px;
+  padding:25px;
+}
+
+
+.page {
+  margin:0px;
+  padding:0px;
+  text-align: left;
+  background: #EDEEEE;
+  font-size: 14px;
+  padding-left:100px;
+  padding-right:100px;
+  padding-top:50px;
+  height: 100%;
+}
+
+
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:#324667;
+  color: white;
+  text-align: center;
+  padding:25px;
+}
+
