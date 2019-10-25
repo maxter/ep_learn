@@ -9,6 +9,16 @@ import { LogoComponent } from './logo/logo.component';
 import { PageComponent } from './page/page.component';
 import { NavComponent } from './nav/nav.component';
 import { SectionComponent } from './section/section.component';
+import { CourcesComponent } from './cources/cources.component';
+
+
+
+/*
+const appRoutes: Routes =[
+  { path: '', component: PageComponent},
+];
+*/
+
 
 @NgModule({
   declarations: [
@@ -18,7 +28,8 @@ import { SectionComponent } from './section/section.component';
     LogoComponent,
     PageComponent,
     NavComponent,
-    SectionComponent
+    SectionComponent,
+    CourcesComponent
   ],
   imports: [
     BrowserModule,
