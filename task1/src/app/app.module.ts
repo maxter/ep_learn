@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {Routes, RouterModule} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,12 +12,10 @@ import { SectionComponent } from './section/section.component';
 import { CourcesComponent } from './cources/cources.component';
 
 
-
-/*
-const appRoutes: Routes =[
-  { path: '', component: PageComponent},
+const routes: Routes = [
+  { path: 'cources', component: CourcesComponent },
+  { path: '', redirectTo: '/cources', pathMatch: 'full' }
 ];
-*/
 
 
 @NgModule({
