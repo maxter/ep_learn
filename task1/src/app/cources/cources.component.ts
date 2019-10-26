@@ -10,6 +10,11 @@ export class CourcesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.logIt(`OnInit`);
+  }
+
+  logIt(msg: string) {
+    console.log('OnInitCources');
   }
 
 }
