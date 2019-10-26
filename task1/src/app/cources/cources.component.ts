@@ -17,4 +17,5 @@ export class CourcesComponent implements OnInit {
     console.log('OnInitCources');
   }
 
+
 }
