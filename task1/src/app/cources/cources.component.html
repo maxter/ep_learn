@@ -1,6 +1,5 @@
 <div class="page">
     <app-section></app-section>
-    <!-- <app-courceitem [item]="item" *ng-for="#item of list"></app-courceitem> -->
+    <app-courceitem [courceItem]="item" *ngFor="let item of cources"></app-courceitem>
     <!-- <app-courceitem  [titleCource]="'Lesson1'" conductAt="04.04.2020" [durationMin]=40  [description]="'A coual programs.'"></app-courceitem> -->
-    <app-courceitem [courceItem]="courceItem"></app-courceitem>
  </div>

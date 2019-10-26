@@ -7,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourcesComponent implements OnInit {
 
- courceItem = {"title":"lesson 1"}
+ // courceItem = {"title":"lesson 1"}
+
+
+ cources: { title: string }[] = [
+    { "title": "lesson 1" },
+    { "title": "lesson 2" },
+    { "title": "lesson 3" }
+ ];
+
+
 
   constructor() { }
 
