@@ -53,3 +53,10 @@ form.example::after {
 	text-align:right;
 	margin-bottom:10px;
 }
+
+
+.form_sec
+{
+  margin:left;
+  max-width:300px;
+}

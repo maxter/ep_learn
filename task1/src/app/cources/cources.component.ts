@@ -7,16 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourcesComponent implements OnInit {
 
- // courceItem = {"title":"lesson 1"}
-
-
- cources: { title: string }[] = [
-    { "title": "lesson 1" },
-    { "title": "lesson 2" },
-    { "title": "lesson 3" }
- ];
-
-
+  cources: { title: string, conductAt:Date, durationMin:number, description:string }[] = [
+      { "title": "lesson 1", conductAt:new Date('04.01.2020'), durationMin:50, description:"Some description 1" },
+      { "title": "lesson 2", conductAt:new Date('03.01.2020'), durationMin:40, description:"Some description 2"  },
+      { "title": "lesson 3", conductAt:new Date('04.04.2021'), durationMin:60, description:"Some description 3"  }
+  ];
 
   constructor() { }
 

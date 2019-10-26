@@ -9,11 +9,6 @@ export class CourceitemComponent implements OnInit {
  
   @Input() courceItem : any
 
-  // @Input() titleCource: string;
-  // @Input() description: string;
-  // @Input() durationMin: number;
-  // @Input() conductAt: Date;
-
   constructor() { }
 
   ngOnInit() {
