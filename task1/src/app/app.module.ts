@@ -10,6 +10,7 @@ import { PageComponent } from './page/page.component';
 import { NavComponent } from './nav/nav.component';
 import { SectionComponent } from './section/section.component';
 import { CourcesComponent } from './cources/cources.component';
+import { FormsModule }   from '@angular/forms';
 
 
 const routes: Routes = [
@@ -31,7 +32,8 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
