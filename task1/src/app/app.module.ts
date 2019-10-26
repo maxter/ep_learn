@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoComponent } from './logo/logo.component';
-import { PageComponent } from './page/page.component';
 import { NavComponent } from './nav/nav.component';
 import { SectionComponent } from './section/section.component';
 import { CourcesComponent } from './cources/cources.component';
 import { FormsModule }   from '@angular/forms';
+import { CourceitemComponent } from './courceitem/courceitem.component';
 
 
 const routes: Routes = [
@@ -25,10 +25,10 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     LogoComponent,
-    PageComponent,
     NavComponent,
     SectionComponent,
-    CourcesComponent
+    CourcesComponent,
+    CourceitemComponent
   ],
   imports: [
     BrowserModule,
