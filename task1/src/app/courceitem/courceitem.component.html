@@ -2,18 +2,18 @@
     <div class="content">
         <div class="title">
          <div class="caption">
-           {{courceItem.title}}
+           {{courceItem.Title}}
          </div>
           <div class="info">
-            <i class="fa fa-clock-o"></i> {{courceItem.durationMin}} min. <i class="fa fa-calendar"></i> {{courceItem.conductAt | date: 'dd.MM.yyyy'}} 
+            <i class="fa fa-clock-o"></i> {{courceItem.DurationMin}} min. <i class="fa fa-calendar"></i> {{courceItem.ConductAt | date: 'dd.MM.yyyy'}} 
           </div>
         </div>
        <div class="course_text">
-        {{courceItem.description}}
+        {{courceItem.Description}}
        </div>
     </div>
     <div class="actions">
       <button class="btn"><i class="fa fa-user"></i> Edit</button>
-      <button class="btn"><i class="fa fa-sign-out"></i> Delete</button>
+      <button (click)="deleteCource()" class="btn"><i class="fa fa-sign-out"></i> Delete</button>
     </div>
 </div>

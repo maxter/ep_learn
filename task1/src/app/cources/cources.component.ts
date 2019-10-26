@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourcesComponent implements OnInit {
 
-  cources: { title: string, conductAt:Date, durationMin:number, description:string }[] = [
-      { "title": "lesson 1", conductAt:new Date('04.01.2020'), durationMin:50, description:"Some description 1" },
-      { "title": "lesson 2", conductAt:new Date('03.01.2020'), durationMin:40, description:"Some description 2"  },
-      { "title": "lesson 3", conductAt:new Date('04.04.2021'), durationMin:60, description:"Some description 3"  }
+  cources: { Id:number, Title: string, ConductAt:Date, DurationMin:number, Description:string }[] = [
+      { Id:1, Title: "lesson 1", ConductAt:new Date('04.01.2020'), DurationMin:50, Description:"Some description 1" },
+      { Id:2, Title: "lesson 2", ConductAt:new Date('03.01.2020'), DurationMin:40, Description:"Some description 2"  },
+      { Id:3, Title: "lesson 3", ConductAt:new Date('04.04.2021'), DurationMin:60, Description:"Some description 3"  }
   ];
 
   constructor() { }
@@ -23,7 +23,9 @@ export class CourcesComponent implements OnInit {
     console.log('OnInitCources');
   }
 
-  
-
+  deleteCource(courceId:any)
+  {
+    console.log("deleting cource with ID : " + courceId)
+  }
 
 }
