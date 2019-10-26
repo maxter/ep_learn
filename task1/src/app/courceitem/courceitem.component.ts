@@ -7,10 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CourceitemComponent implements OnInit {
  
-  @Input() titleCource: string;
-  @Input() description: string;
-  @Input() durationMin: number;
-  @Input() conductAt: Date;
+  @Input() courceItem : any
+
+  // @Input() titleCource: string;
+  // @Input() description: string;
+  // @Input() durationMin: number;
+  // @Input() conductAt: Date;
 
   constructor() { }
 

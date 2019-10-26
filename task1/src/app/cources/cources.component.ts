@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourcesComponent implements OnInit {
 
+ courceItem = {"title":"lesson 1"}
+
   constructor() { }
 
   ngOnInit() {
@@ -16,6 +18,8 @@ export class CourcesComponent implements OnInit {
   logIt(msg: string) {
     console.log('OnInitCources');
   }
+
+  
 
 
 }
