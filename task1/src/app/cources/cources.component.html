@@ -1,0 +1,4 @@
+<div class="page">
+    <app-section></app-section>
+    <app-courceitem (deleteCourceEvent)="deleteCource($event)" [courceItem]="item" *ngFor="let item of cources"></app-courceitem>
+ </div>

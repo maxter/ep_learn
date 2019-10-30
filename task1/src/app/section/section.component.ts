@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionComponent implements OnInit {
 
+  searchText : string = "";
+
   constructor() { }
+
+  handleClick(event: Event) {
+    console.log("search clicked " + this.searchText);
+  }
 
   ngOnInit() {
   }
