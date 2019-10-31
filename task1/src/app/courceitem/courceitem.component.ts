@@ -14,13 +14,14 @@ export class CourceitemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.courceId = this.courceItem.Id;
+    if(this.courceItem)
+      this.courceId = this.courceItem.Id;
   }
 
   @Output() deleteCourceEvent = new EventEmitter<number>();
 
   deleteCource() {
-    this.deleteCourceEvent.next(this.courceId);
+   this.deleteCourceEvent.next(this.courceId);
   }
 
 }
