@@ -24,6 +24,5 @@ export class CourceitemComponent implements OnInit {
   deleteCource() : void {
     this.deleteCourceEvent.emit(this.courceItem.Id);
   }
-
 }
 
