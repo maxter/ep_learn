@@ -1,6 +1,4 @@
-import { ICourceItem } from './icourceitem';
-
-export class CourceItem implements ICourceItem {
+export interface ICourceItem {
     Id:number; 
     Title: string;
     ConductAt:Date; 
