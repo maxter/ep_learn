@@ -31,7 +31,7 @@ import { CourceItem } from '../cource-item';
     });
 
   
-    it('should raise cource delete', () => {
+    it('should raise cource delete event when peress delete button (output check)', () => {
       fixture.detectChanges();
 
       const expectedDeletedCourceId = 1;  

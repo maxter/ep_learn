@@ -21,7 +21,7 @@ describe('CourceitemComponent', () => {
     courceItem = new CourceItem();
     courceItem.Id = 1;
     courceItem.Title= "lesson 1";
-    courceItem.ConductAt = new Date('04.01.2020');
+    courceItem.ConductAt = new Date('01.01.2020');
     courceItem.DurationMin = 50
     courceItem.Description = "Some description 1";
 
@@ -48,4 +48,56 @@ describe('CourceitemComponent', () => {
   });
 
 
+  it('should have a cource description', () => {
+    fixture.detectChanges();
+
+    const debugElement: DebugElement = fixture.debugElement;
+    const captionDebugElement = debugElement.query(By.css('.course_text'));
+    const cap = captionDebugElement.nativeElement;
+
+    expect(cap.textContent).toBe(courceItem.Description);
+  });
+
+  
+  it('should have a cource duration', () => {
+    fixture.detectChanges();
+
+    const debugElement: DebugElement = fixture.debugElement;
+    const captionDebugElement = debugElement.query(By.css('.duration'));
+    const cap = captionDebugElement.nativeElement;
+
+    expect(cap.textContent).toBe(String(courceItem.DurationMin));
+  });
+
+  
+  it('should have a cource time', () => {
+    fixture.detectChanges();
+
+    const debugElement: DebugElement = fixture.debugElement;
+    const captionDebugElement = debugElement.query(By.css('.conduct'));
+    const cap = captionDebugElement.nativeElement;
+
+    expect(cap.textContent).toBe('01.01.2020');
+  });
+
+
+  it('should have edit button', () => {
+    fixture.detectChanges();
+
+    const debugElement: DebugElement = fixture.debugElement;
+    const captionDebugElement = debugElement.query(By.css('.edit-button'));
+    const cap = captionDebugElement.nativeElement;
+
+    expect(cap).toBeTruthy();
+  });
+
+  it('should have delete button', () => {
+    fixture.detectChanges();
+
+    const debugElement: DebugElement = fixture.debugElement;
+    const captionDebugElement = debugElement.query(By.css('.delete-button'));
+    const cap = captionDebugElement.nativeElement;
+
+    expect(cap).toBeTruthy();
+  });
 });
