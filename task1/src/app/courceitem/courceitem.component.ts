@@ -20,9 +20,8 @@ export class CourceitemComponent implements OnInit {
       this.courceId = this.courceItem.Id;
   }
 
-  deleteCource() {
- //  this.deleteCourceEvent.next(this.courceId);
- this.deleteCourceEvent.emit(this.courceItem.Id);
+  deleteCource() : void {
+    this.deleteCourceEvent.emit(this.courceItem.Id);
   }
 
 }
