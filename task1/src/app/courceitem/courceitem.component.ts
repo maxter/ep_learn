@@ -9,6 +9,8 @@ import { CourceItem } from '../cource-item';
 export class CourceitemComponent implements OnInit {
  
   @Input() courceItem : CourceItem;
+  @Output() deleteCourceEvent = new EventEmitter<number>();
+  
   courceId: number;
 
   constructor() { }
@@ -18,10 +20,9 @@ export class CourceitemComponent implements OnInit {
       this.courceId = this.courceItem.Id;
   }
 
-  @Output() deleteCourceEvent = new EventEmitter<number>();
-
   deleteCource() {
-   this.deleteCourceEvent.next(this.courceId);
+ //  this.deleteCourceEvent.next(this.courceId);
+ this.deleteCourceEvent.emit(this.courceItem.Id);
   }
 
 }
