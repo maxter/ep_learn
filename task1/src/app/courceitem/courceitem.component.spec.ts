@@ -9,7 +9,7 @@ describe('CourceitemComponent', () => {
   let sut: CourceitemComponent;
   let fixture: ComponentFixture<CourceitemComponent>;
 
-  let courceItem: ICourceItem;
+  let courceItem : ICourceItem = {Id : 1, Title : "lesson 1", ConductAt : new Date('01.01.2020'), DurationMin : 50, Description : "Some description 1"};
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -19,15 +19,6 @@ describe('CourceitemComponent', () => {
   }));
 
   beforeEach(() => {
-    courceItem = new CourceItem();
-    courceItem.Id = 1;
-    courceItem.Title= "lesson 1";
-    courceItem.ConductAt = new Date('01.01.2020');
-    courceItem.DurationMin = 50
-    courceItem.Description = "Some description 1";
-    
-
-
     fixture = TestBed.createComponent(CourceitemComponent);
     sut = fixture.componentInstance;
     sut.courceItem = courceItem;
