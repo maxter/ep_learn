@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CourceItem } from '../cource-item';
 import { CourceitemComponent } from './courceitem.component';
+import { ICourceItem } from '../icourceitem';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
@@ -8,7 +9,7 @@ describe('CourceitemComponent', () => {
   let sut: CourceitemComponent;
   let fixture: ComponentFixture<CourceitemComponent>;
 
-  let courceItem: CourceItem;
+  let courceItem: ICourceItem;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
