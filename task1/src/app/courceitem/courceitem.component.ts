@@ -12,13 +12,16 @@ export class CourceitemComponent implements OnInit {
   @Input() courceItem : ICourceItem;
   @Output() deleteCourceEvent = new EventEmitter<number>();
   
-  courceId: number;
+  get courceId() {
 
-  constructor() { }
+    return this.courceItem.Id;
+
+  }
+
+  constructor() { 
+  }
 
   ngOnInit() {
-    if(this.courceItem)
-      this.courceId = this.courceItem.Id;
   }
 
   deleteCource() : void {

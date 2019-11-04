@@ -24,6 +24,7 @@ describe('CourceitemComponent', () => {
     courceItem.ConductAt = new Date('01.01.2020');
     courceItem.DurationMin = 50
     courceItem.Description = "Some description 1";
+    
 
 
     fixture = TestBed.createComponent(CourceitemComponent);
