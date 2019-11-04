@@ -13,9 +13,7 @@ export class CourceitemComponent implements OnInit {
   @Output() deleteCourceEvent = new EventEmitter<number>();
   
   get courceId() {
-
     return this.courceItem.Id;
-
   }
 
   constructor() { 

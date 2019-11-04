@@ -20,13 +20,48 @@ export class CourcesComponent implements OnInit {
     this.logIt(`OnInit`);
   }
 
-  logIt(msg: string) {
-    console.log('OnInitCources');
+  ngOnChanges()
+  {
+    this.logIt(`ngOnChanges`);
+  }
+ 
+  ngDoCheck()
+  {
+    this.logIt(`ngDoCheck`);
+  }
+  
+  ngAfterContentInit()
+  {
+    this.logIt(`ngAfterContentInit`);
+  }
+  
+  ngAfterContentChecked()
+  {
+    this.logIt(`ngAfterContentChecked`);
   }
 
-  deleteCource(courceId:any)
+  ngAfterViewInit()
   {
-    console.log("deleting cource with ID : " + courceId)
+    this.logIt(`ngAfterViewInit`);
+  }
+ 
+  ngAfterViewChecked()
+  {
+    this.logIt(`ngAfterViewChecked`);
+  }
+  
+  ngOnDestroy()
+  {
+    this.logIt(`ngOnDestroy`);
+  }
+
+  logIt(msg: string) {
+    console.log(msg);
+  }
+
+  deleteCource(courceId:number)
+  {
+    console.log(`deleting cource with ID ${courceId}`)
   }
 
 }
