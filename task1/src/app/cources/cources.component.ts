@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICourceItem } from '../icourceitem';
+import { CourceItem } from '../cource-item';
 
 
 @Component({
@@ -10,9 +11,10 @@ import { ICourceItem } from '../icourceitem';
 export class CourcesComponent implements OnInit {
 
 
-  cources: ICourceItem[] = [  { Id:1, Title: "lesson 1", ConductAt:new Date('04.01.2020'), DurationMin:50, Description:"Some description 1" },
-  { Id:2, Title: "lesson 2", ConductAt:new Date('03.01.2020'), DurationMin:40, Description:"Some description 2"  },
-  { Id:3, Title: "lesson 3", ConductAt:new Date('04.04.2021'), DurationMin:60, Description:"Some description 3"  }]
+  cources: ICourceItem[] = 
+  [new CourceItem(1, "lesson 1", new Date('04.01.2020'), 5, "Some description 1"),
+  new CourceItem(2, "lesson 2", new Date('03.01.2020'), 40, "Some description 2"),
+  new CourceItem(3, "lesson 3", new Date('04.04.2021'), 60, "Some description 3")]
 
   constructor() { }
 
