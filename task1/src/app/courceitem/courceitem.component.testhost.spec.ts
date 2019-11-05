@@ -2,15 +2,18 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CourceitemComponent } from './courceitem.component';
 import { Component } from '@angular/core';
 import { By } from "@angular/platform-browser";
-import { CourceItem } from '../cource-item';
+import { ICourceItem } from '../icourceitem';
+import { DebugElement } from '@angular/core';
 
 @Component({
-    template: `
-    <app-courceitem (deleteCourceEvent)="deleteCource($event)"
-     [courceItem]="courceItem"></app-courceitem>`
+    template: `<app-courceitem (deleteCourceEvent)="deleteCource($event)" [courceItem]="item" *ngFor="let item of courcesList"></app-courceitem>`
   })
   class TestHostComponent {
-    public courceItem: CourceItem  =  { Id:1, Title: "lesson 1", ConductAt:new Date('04.01.2020'), DurationMin:50, Description:"Some description 1" }
+
+    public courcesList: ICourceItem[] = [  { Id:1, Title: "lesson 1", ConductAt:new Date('04.01.2020'), DurationMin:50, Description:"Some description 1" },
+    { Id:2, Title: "lesson 2", ConductAt:new Date('03.01.2020'), DurationMin:40, Description:"Some description 2"  },
+    { Id:3, Title: "lesson 3", ConductAt:new Date('04.04.2021'), DurationMin:60, Description:"Some description 3"  }]
+
     public deletedCourceId : number;
     public deleteCource(deletedCourceId: number) { this.deletedCourceId = deletedCourceId}
   }
@@ -40,6 +43,16 @@ import { CourceItem } from '../cource-item';
   
       expect(testHost.deletedCourceId).toEqual(expectedDeletedCourceId);
     });
+
+
+    it('should be Three records', () => {
+      fixture.detectChanges();
+
+      const debugElement: DebugElement = fixture.debugElement;
+      const itemList = debugElement.queryAll(By.css('.item'));
+      expect(itemList.length).toBe(3);
+    });
+        
   });
   
 
