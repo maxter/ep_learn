@@ -11,10 +11,6 @@ export class SectionComponent implements OnInit {
 
   constructor() { }
 
-  handleClick(event: Event) {
-    console.log("search clicked " + this.searchText);
-  }
-
   ngOnInit() {
   }
 

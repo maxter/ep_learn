@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ICourceItem } from '../icourceitem';
+import { CourceItem } from '../cource-item';
+
 
 @Component({
   selector: 'app-cources',
@@ -7,11 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourcesComponent implements OnInit {
 
-  cources: { Id:number, Title: string, ConductAt:Date, DurationMin:number, Description:string }[] = [
-      { Id:1, Title: "lesson 1", ConductAt:new Date('04.01.2020'), DurationMin:50, Description:"Some description 1" },
-      { Id:2, Title: "lesson 2", ConductAt:new Date('03.01.2020'), DurationMin:40, Description:"Some description 2"  },
-      { Id:3, Title: "lesson 3", ConductAt:new Date('04.04.2021'), DurationMin:60, Description:"Some description 3"  }
-  ];
+
+  cources: ICourceItem[] = 
+  [new CourceItem(1, "lesson 1", '04.01.2020', 5, "Some description 1"),
+  new CourceItem(2, "lesson 2", '03.01.2020', 40, "Some description 2"),
+  new CourceItem(3, "lesson 3", '04.04.2021', 60, "Some description 3")]
 
   constructor() { }
 
@@ -19,13 +22,48 @@ export class CourcesComponent implements OnInit {
     this.logIt(`OnInit`);
   }
 
-  logIt(msg: string) {
-    console.log('OnInitCources');
+  ngOnChanges()
+  {
+    this.logIt(`ngOnChanges`);
+  }
+ 
+  ngDoCheck()
+  {
+    this.logIt(`ngDoCheck`);
+  }
+  
+  ngAfterContentInit()
+  {
+    this.logIt(`ngAfterContentInit`);
+  }
+  
+  ngAfterContentChecked()
+  {
+    this.logIt(`ngAfterContentChecked`);
   }
 
-  deleteCource(courceId:any)
+  ngAfterViewInit()
   {
-    console.log("deleting cource with ID : " + courceId)
+    this.logIt(`ngAfterViewInit`);
+  }
+ 
+  ngAfterViewChecked()
+  {
+    this.logIt(`ngAfterViewChecked`);
+  }
+  
+  ngOnDestroy()
+  {
+    this.logIt(`ngOnDestroy`);
+  }
+
+  logIt(msg: string) {
+    console.log(msg);
+  }
+
+  deleteCource(courceId:number)
+  {
+    console.log(`deleting cource with ID ${courceId}`)
   }
 
 }

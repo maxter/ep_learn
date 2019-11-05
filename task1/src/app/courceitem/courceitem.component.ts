@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CourceItem } from '../cource-item';
+import { ICourceItem } from '../icourceitem';
 
 @Component({
   selector: 'app-courceitem',
@@ -8,20 +9,21 @@ import { CourceItem } from '../cource-item';
 })
 export class CourceitemComponent implements OnInit {
  
-  @Input() courceItem : CourceItem;
-  courceId: number;
+  @Input() courceItem : ICourceItem;
+  @Output() deleteCourceEvent = new EventEmitter<number>();
+  
+  get courceId() {
+    return this.courceItem.Id;
+  }
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit() {
-    this.courceId = this.courceItem.Id;
   }
 
-  @Output() deleteCourceEvent = new EventEmitter<number>();
-
-  deleteCource() {
-    this.deleteCourceEvent.next(this.courceId);
+  deleteCource() : void {
+    this.deleteCourceEvent.emit(this.courceItem.Id);
   }
-
 }
 

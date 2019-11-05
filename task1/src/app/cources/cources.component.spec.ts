@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { SectionComponent } from '../section/section.component';
 import { CourcesComponent } from './cources.component';
+import { CourceitemComponent } from '../courceitem/courceitem.component';
+import { FormsModule }   from '@angular/forms';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('CourcesComponent', () => {
   let component: CourcesComponent;
@@ -8,7 +11,11 @@ describe('CourcesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CourcesComponent ]
+      imports: [
+        FormsModule
+      ],
+      declarations: [ CourcesComponent, SectionComponent, CourceitemComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));

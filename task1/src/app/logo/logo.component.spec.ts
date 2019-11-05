@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { By } from "@angular/platform-browser";
+import { DebugElement } from '@angular/core';
 import { LogoComponent } from './logo.component';
 
 describe('LogoComponent', () => {
@@ -21,5 +22,15 @@ describe('LogoComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display logo', () => {
+    fixture.detectChanges();
+
+    const debugElement: DebugElement = fixture.debugElement;
+    const crDebugElement = debugElement.query(By.css('.logo'));
+    const logo = crDebugElement.nativeElement;
+
+    expect(logo.querySelector('div.logo>img').src).toContain('assets/img/logo.svg');
   });
 });
