@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CourceItemDateDirective} from '../cource-item-date.directive';
 
 @Component({
   selector: 'app-nav',

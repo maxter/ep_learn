@@ -34,7 +34,7 @@ import { DebugElement } from '@angular/core';
     });
 
   
-    it('should raise cource delete event when peress delete button (output check)', () => {
+    it('should raise cource delete event when peress de13,00lete button (output check)', () => {
       fixture.detectChanges();
 
       const expectedDeletedCourceId = 1;  
