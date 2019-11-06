@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CourceItem } from '../cource-item';
 import { ICourceItem } from '../icourceitem';
+import { CourceItemDateDirective} from '../cource-item-date.directive';
 
 @Component({
   selector: 'app-courceitem',
