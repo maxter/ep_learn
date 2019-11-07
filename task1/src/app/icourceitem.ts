@@ -4,4 +4,5 @@ export interface ICourceItem {
     ConductAt:Date; 
     DurationMin:number;
     Description:string;
+    Starred:boolean;
 }

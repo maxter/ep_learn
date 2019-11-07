@@ -12,7 +12,7 @@ export class CourcesComponent implements OnInit {
 
   cources: ICourceItem[] = 
   [new CourceItem(1, "lesson 1", '10.01.2019', 5, "Some description 1"),
-  new CourceItem(2, "lesson 2", '11.04.2019', 40, "Some description 2"),
+  new CourceItem(2, "lesson 2", '11.04.2019', 40, "Some description 2",true),
   new CourceItem(3, "lesson 3", '04.04.2001', 60, "Some description 3")]
 
 
