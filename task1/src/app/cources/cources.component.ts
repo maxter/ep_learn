@@ -5,6 +5,7 @@ import { OrderByPipe } from '../orderby.pipe';
 import { SearchPipe } from '../search.pipe';
 
 
+
 @Component({
   selector: 'app-cources',
   templateUrl: './cources.component.html',
@@ -13,6 +14,7 @@ import { SearchPipe } from '../search.pipe';
 export class CourcesComponent implements OnInit {
 
   filterargs = {Title: 'test'};
+  searchText = "";
 
   cources: ICourceItem[] = 
   [new CourceItem(1, "lesson 1", '10.01.2019', 5, "Some description 1"),
@@ -68,6 +70,12 @@ export class CourcesComponent implements OnInit {
   deleteCource(courceId:number)
   {
     console.log(`deleting cource with ID ${courceId}`)
+  }
+
+  search(search:string)
+  {
+    this.searchText = search;
+    console.log(`searching cource ${search}`)
   }
 
 }
