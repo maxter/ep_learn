@@ -6,11 +6,15 @@ import { NgModule } from '@angular/core';
   })
   export class LessonPipe implements PipeTransform {
     transform(value: number): string {
-       if(value > 0 && value/60 < 1) {
-         return value + ' Minutes';
+      
+      if(value > 0 && value/60 < 1) {
+         return value + ' min.';
    
        } else {
-         return value/60 + ' Hour(s)';
+         var hours = Math.floor(value/60) + ' h.';
+         var min = value % 60 + ' min.';
+
+         return hours + min;
        }
     }
   }

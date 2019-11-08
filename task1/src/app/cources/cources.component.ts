@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ICourceItem } from '../icourceitem';
 import { CourceItem } from '../cource-item';
+import { OrderByPipe } from '../orderby.pipe';
 
 
 @Component({

@@ -13,6 +13,7 @@ import { FormsModule }   from '@angular/forms';
 import { CourceitemComponent } from './courceitem/courceitem.component';
 import { CourceItemDateDirective} from './cource-item-date.directive';
 import { LessonPipe } from './duration.pipe';
+import { OrderByPipe } from './orderby.pipe';
 
 const routes: Routes = [
   { path: 'cources', component: CourcesComponent },
@@ -31,7 +32,8 @@ const routes: Routes = [
     CourcesComponent,
     CourceitemComponent,
     CourceItemDateDirective,
-    LessonPipe
+    LessonPipe,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,
