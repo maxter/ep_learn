@@ -14,6 +14,8 @@ import { CourceitemComponent } from './courceitem/courceitem.component';
 import { CourceItemDateDirective} from './cource-item-date.directive';
 import { LessonPipe } from './duration.pipe';
 import { OrderByPipe } from './orderby.pipe';
+import { SearchPipe } from './search.pipe';
+
 
 const routes: Routes = [
   { path: 'cources', component: CourcesComponent },
@@ -33,7 +35,8 @@ const routes: Routes = [
     CourceitemComponent,
     CourceItemDateDirective,
     LessonPipe,
-    OrderByPipe
+    OrderByPipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

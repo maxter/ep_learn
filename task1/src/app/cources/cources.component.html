@@ -1,5 +1,5 @@
 <div class="page">
     <app-section></app-section>
-    <app-courceitem (deleteCourceEvent)="deleteCource($event)" [courceItem]="item" *ngFor="let item of cources | orderby:'-ConductAt'"></app-courceitem>
+    <app-courceitem (deleteCourceEvent)="deleteCource($event)" [courceItem]="item" *ngFor="let item of cources  | search : 'Title' : 'test' | orderby:'-ConductAt'"></app-courceitem>
     <span *ngIf="cources?.length == 0">No data. Feel free to add new cource</span>
 </div>
