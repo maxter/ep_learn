@@ -12,6 +12,7 @@ import { CourcesComponent } from './cources/cources.component';
 import { FormsModule }   from '@angular/forms';
 import { CourceitemComponent } from './courceitem/courceitem.component';
 import { CourceItemDateDirective} from './cource-item-date.directive';
+import { LessonPipe } from './duration.pipe';
 
 const routes: Routes = [
   { path: 'cources', component: CourcesComponent },
@@ -29,7 +30,8 @@ const routes: Routes = [
     SectionComponent,
     CourcesComponent,
     CourceitemComponent,
-    CourceItemDateDirective
+    CourceItemDateDirective,
+    LessonPipe
   ],
   imports: [
     BrowserModule,

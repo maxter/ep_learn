@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Pipe } from '@angular/core';
 import { CourceItem } from '../cource-item';
 import { ICourceItem } from '../icourceitem';
 import { CourceItemDateDirective} from '../cource-item-date.directive';
+import { LessonPipe } from '../duration.pipe';
 
 @Component({
   selector: 'app-courceitem',
