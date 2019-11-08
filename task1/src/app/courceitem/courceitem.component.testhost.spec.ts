@@ -3,16 +3,19 @@ import { CourceitemComponent } from './courceitem.component';
 import { Component } from '@angular/core';
 import { By } from "@angular/platform-browser";
 import { ICourceItem } from '../icourceitem';
+import { CourceItem } from '../cource-item';
 import { DebugElement } from '@angular/core';
+import { OrderByPipe } from '../orderby.pipe';
+import { SearchPipe } from '../search.pipe';
 
 @Component({
-    template: `<app-courceitem (deleteCourceEvent)="deleteCource($event)" [courceItem]="item" *ngFor="let item of courcesList"></app-courceitem>`
+    template: `<app-courceitem (deleteCourceEvent)="deleteCource($event)" [courceItem]="item" *ngFor="let item of courcesList  | search : 'Title' : searchText | orderby:'-ConductAt'"></app-courceitem>`
   })
   class TestHostComponent {
 
-    public courcesList: ICourceItem[] = [  { Id:1, Title: "lesson 1", ConductAt:new Date('04.01.2020'), DurationMin:50, Description:"Some description 1" },
-    { Id:2, Title: "lesson 2", ConductAt:new Date('03.01.2020'), DurationMin:40, Description:"Some description 2"  },
-    { Id:3, Title: "lesson 3", ConductAt:new Date('04.04.2021'), DurationMin:60, Description:"Some description 3"  }]
+    public courcesList: ICourceItem[] = [new CourceItem(1, "lesson 1", '10.01.2019', 5, "Some description 1",false),
+    new CourceItem(2, "lesson 2", '11.04.2019', 80, "Some description 2",true),
+    new CourceItem(3, "lesson 3 test", '04.04.2001', 60, "Some description 3",false)]
 
     public deletedCourceId : number;
     public deleteCource(deletedCourceId: number) { this.deletedCourceId = deletedCourceId}
