@@ -11,6 +11,10 @@ import { SectionComponent } from './section/section.component';
 import { CourcesComponent } from './cources/cources.component';
 import { FormsModule }   from '@angular/forms';
 import { CourceitemComponent } from './courceitem/courceitem.component';
+import { CourceItemDateDirective} from './cource-item-date.directive';
+import { LessonPipe } from './duration.pipe';
+import { OrderByPipe } from './orderby.pipe';
+import { SearchPipe } from './search.pipe';
 
 
 const routes: Routes = [
@@ -28,7 +32,11 @@ const routes: Routes = [
     NavComponent,
     SectionComponent,
     CourcesComponent,
-    CourceitemComponent
+    CourceitemComponent,
+    CourceItemDateDirective,
+    LessonPipe,
+    OrderByPipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

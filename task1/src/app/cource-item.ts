@@ -6,9 +6,10 @@ export class CourceItem implements ICourceItem {
     ConductAt:Date; 
     DurationMin:number;
     Description:string;
+    Starred:boolean;
 
 
-    constructor(id:number = null, title: string  = null, conductAt:string  = null, durationMin:number  = null, description:string  = null) {
+    constructor(id:number = null, title: string  = null, conductAt:string  = null, durationMin:number  = null, description:string  = null, starred:boolean = false) {
         
         if(id == null || title == null || conductAt == null || durationMin == null || description==null)
           return;
@@ -18,5 +19,6 @@ export class CourceItem implements ICourceItem {
         this.ConductAt = new Date(conductAt);
         this.DurationMin = durationMin;
         this.Description = description;
+        this.Starred = starred;
     }
 }

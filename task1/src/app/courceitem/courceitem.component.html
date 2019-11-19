@@ -1,15 +1,15 @@
- <div class="list item">
-    <div class="content">
-        <div class="title">
-         <div class="caption">{{courceItem?.Title}}</div>
-          <div class="info">
-            <i class="fa fa-clock-o"></i><span class="duration">{{courceItem?.DurationMin}}</span> min. <i class="fa fa-calendar"></i> <span class="conduct">{{courceItem?.ConductAt | date: 'dd.MM.yyyy'}}</span> 
-          </div>
+<div [ngClass]="{'starred': courceItem?.Starred==true}" fresh courceDate="{{courceItem?.ConductAt  | date: 'yyyy-MM-dd' }}" class="list item">
+    <div class="content ">
+        <div class="title ">
+            <div class="caption" [ngClass]="{'fa fa-star': courceItem?.Starred==true}">{{courceItem?.Title | uppercase}}</div>
+            <div class="info ">
+                <i class="fa fa-clock-o "></i><span class="duration ">{{courceItem?.DurationMin | lessonTime}} </span> <i class="fa fa-calendar "></i> <span class="conduct ">{{courceItem?.ConductAt | date: 'dd.MM.yyyy'}}</span>
+            </div>
         </div>
-       <div class="course_text">{{courceItem?.Description}}</div>
+        <div class="course_text ">{{courceItem?.Description}}</div>
     </div>
-    <div class="actions">
-      <button class="btn edit-button"><i class="fa fa-user"></i> Edit</button>
-      <button (click)="deleteCource()" class="btn delete-button"><i class="fa fa-sign-out"></i> Delete</button>
+    <div class="actions ">
+        <button class="btn edit-button "><i class="fa fa-user "></i> Edit</button>
+        <button (click)="deleteCource()" class="btn delete-button "><i class="fa fa-sign-out "></i> Delete</button>
     </div>
-</div> 
+</div>
