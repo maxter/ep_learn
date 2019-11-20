@@ -16,12 +16,13 @@ import { LessonPipe } from './duration.pipe';
 import { OrderByPipe } from './orderby.pipe';
 import { SearchPipe } from './search.pipe';
 import { AuthModule } from './auth/auth.module';
+import { AuthGuardService } from './auth/auth-guard.service';
 
 const routes: Routes = [
-  {path : 'auth', loadChildren : './auth/auth.module#AuthModule'},
-  { path: 'cources', component: CourcesComponent },
+  { path: 'cources', component: CourcesComponent, canActivate: [AuthGuardService]  },
   { path: '', redirectTo: '/cources', pathMatch: 'full' }
 ];
+
 
 
 @NgModule({
@@ -37,7 +38,7 @@ const routes: Routes = [
     CourceItemDateDirective,
     LessonPipe,
     OrderByPipe,
-    SearchPipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -45,7 +46,7 @@ const routes: Routes = [
     FormsModule,
     AuthModule
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
