@@ -16,11 +16,21 @@ export class CourcesService{
       return this.cources.filter(x => x.Id == id)[0]
     }
 
-    updateCource(id:number){
-        return this.cources.filter(x => x.Id == id)[0]
-      }
+    updateCource(id:number, title: string, conductAt:string, durationMin:number, description:string, isStarred:boolean = false){
+        let courceIndex = this.cources.findIndex(x => x.Id == id);
+        this.cources[courceIndex] = new CourceItem(id, title, conductAt, durationMin, description, isStarred);
+    }
     
-    addData(id:number, title: string, conductAt:string, durationMin:number, description:string, isStarred:boolean = false){
+    addCource(id:number, title: string, conductAt:string, durationMin:number, description:string, isStarred:boolean = false){
         this.cources.push(new CourceItem(id, title, conductAt, durationMin, description, isStarred));
     }
+
+    removeCource(id:number, title: string, conductAt:string, durationMin:number, description:string, isStarred:boolean = false){
+      let index = this.cources.findIndex(x => x.Id == id);
+      if (index > -1) {
+        this.cources.splice(index, 1);
+      }
+    }
+
+
 }
