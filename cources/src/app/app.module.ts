@@ -16,10 +16,9 @@ import { LessonPipe } from './duration.pipe';
 import { OrderByPipe } from './orderby.pipe';
 import { SearchPipe } from './search.pipe';
 import { AuthModule } from './auth/auth.module';
-//import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
- // {path : 'auth', loadChildren : './auth/auth.module#AuthModule'},
+  {path : 'auth', loadChildren : './auth/auth.module#AuthModule'},
   { path: 'cources', component: CourcesComponent },
   { path: '', redirectTo: '/cources', pathMatch: 'full' }
 ];
@@ -39,7 +38,6 @@ const routes: Routes = [
     LessonPipe,
     OrderByPipe,
     SearchPipe,
-  //  LoginComponent
   ],
   imports: [
     BrowserModule,
