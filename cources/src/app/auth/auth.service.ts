@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {Router} from "@angular/router"
 
 
 @Injectable({
@@ -6,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 
 export class AuthService {
-  constructor() {}
+  constructor(private router: Router) {}
 
   public isAuthenticated(): boolean {
     let isAuth = localStorage.getItem('isAuth');
@@ -15,5 +16,11 @@ export class AuthService {
       return true;
     }
     return false;
+  }
+
+  public LogOff()
+  {
+    localStorage.setItem('isAuth',"false");
+    this.router.navigate(['/login'])
   }
 }

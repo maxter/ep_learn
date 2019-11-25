@@ -18,10 +18,10 @@ import { SearchPipe } from './search.pipe';
 import { AuthModule } from './auth/auth.module';
 import { AuthGuardService } from './auth/auth-guard.service';
 
-const routes: Routes = [
+/*const routes: Routes = [
   { path: 'cources', component: CourcesComponent, canActivate: [AuthGuardService]  },
   { path: '', redirectTo: '/cources', pathMatch: 'full' }
-];
+];*/
 
 
 

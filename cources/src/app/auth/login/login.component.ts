@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
 
   
   login() : void {
-    //save to localstorage
     if(this.userName=="user" && this.password=="12345")
       {
         localStorage.setItem('isAuth',"true");
