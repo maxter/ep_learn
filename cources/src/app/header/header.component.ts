@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logoff() : void {
-   this.auth.LogOff();
+   this.auth.logOff();
    }
 
 }

@@ -18,9 +18,27 @@ export class AuthService {
     return false;
   }
 
-  public LogOff()
+  public logOff()
   {
     localStorage.setItem('isAuth',"false");
+    localStorage.setItem('user',"");
     this.router.navigate(['/login'])
   }
+
+  public getLoggedUser() : String
+  {
+     return localStorage.getItem('user');
+  }
+
+  public auth(user:String, password:String)
+  {
+    if(user=="user" && password=="12345")
+    {
+      localStorage.setItem('isAuth',"true");
+      localStorage.setItem('user',user.toString());
+      this.router.navigate(['/cources'])
+    }
+  }
+
+
 }
