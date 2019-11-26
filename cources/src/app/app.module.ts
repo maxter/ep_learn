@@ -17,6 +17,7 @@ import { OrderByPipe } from './orderby.pipe';
 import { SearchPipe } from './search.pipe';
 import { AuthModule } from './auth/auth.module';
 import { AuthGuardService } from './auth/auth-guard.service';
+import { UpdateItemComponent } from './update-item/update-item.component';
 
 /*const routes: Routes = [
   { path: 'cources', component: CourcesComponent, canActivate: [AuthGuardService]  },
@@ -38,7 +39,8 @@ import { AuthGuardService } from './auth/auth-guard.service';
     CourceItemDateDirective,
     LessonPipe,
     OrderByPipe,
-    SearchPipe
+    SearchPipe,
+    UpdateItemComponent
   ],
   imports: [
     BrowserModule,
