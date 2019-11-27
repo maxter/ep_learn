@@ -20,10 +20,20 @@ export class CourcesService{
         let courceIndex = this.cources.findIndex(x => x.Id == id);
         this.cources[courceIndex] = new CourceItem(id, title, conductAt, durationMin, description, isStarred);
     }
+
+    
+    updateCourceObject(courceItem:ICourceItem){
+      let courceIndex = this.cources.findIndex(x => x.Id == courceItem.Id);
+      this.cources[courceIndex] = new CourceItem(courceItem.Id, courceItem.Title, String(courceItem.ConductAt), courceItem.DurationMin, courceItem.Description, courceItem.Starred);
+    }
     
     addCource(id:number, title: string, conductAt:string, durationMin:number, description:string, isStarred:boolean = false){
         this.cources.push(new CourceItem(id, title, conductAt, durationMin, description, isStarred));
     }
+
+    addCourceObject(item:ICourceItem){
+      this.cources.push(new CourceItem(item.Id, item.Title, String(item.ConductAt), item.DurationMin, item.Description, item.Starred));
+  }
 
     removeCource(id:number, title: string, conductAt:string, durationMin:number, description:string, isStarred:boolean = false){
       let index = this.cources.findIndex(x => x.Id == id);
