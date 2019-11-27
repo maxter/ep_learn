@@ -7,21 +7,20 @@
         </div>
 
         <div class="form-group">
-            <input type="text" class="form-input" placeholder="cource name" name="courceName" [(ngModel)]="courceName">
+            <input type="text" class="form-input" placeholder="cource name" name="title" [(ngModel)]="courceItem.Title">
         </div>
 
         <div class="form-group">
-            <input type="text" class="form-input" placeholder="description" name="courceDesc" [(ngModel)]="courceDesc">
+            <input type="text" class="form-input" placeholder="description" name="courceDesc" [(ngModel)]="courceItem.Description">
         </div>
 
         <div class="form-group">
-            <input type="text" class="form-input" placeholder="date" name="courceDate" [(ngModel)]="courceDate">
+            <input type="text" class="form-input" placeholder="date" name="courceDate" [(ngModel)]="courceItem.ConductAt">
         </div>
 
         <div class="form-group">
-            <input type="text" class="form-input" placeholder="length" name="courceLength" [(ngModel)]="courceLength">
+            <input type="text" class="form-input" placeholder="length" name="courceLength" [(ngModel)]="courceItem.DurationMin">
         </div>
-
 
         <div class="form-group">
             <button (click)="update()" class="form-button" type="submit">Update cource</button>
