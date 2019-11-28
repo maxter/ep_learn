@@ -3,26 +3,30 @@ import { ICourceItem } from '../icourceitem';
 import { CourceItem } from '../cource-item';
 import { OrderByPipe } from '../orderby.pipe';
 import { SearchPipe } from '../search.pipe';
+import {CourcesService} from '../cources.service';
 
 
 
 @Component({
   selector: 'app-cources',
   templateUrl: './cources.component.html',
-  styleUrls: ['./cources.component.css']
+  styleUrls: ['./cources.component.css'],
+  providers: [CourcesService]
 })
 export class CourcesComponent implements OnInit {
 
   filterargs = {Title: 'test'};
   searchText = "";
 
-  cources: ICourceItem[] = 
-  [new CourceItem(1, "lesson 1", '10.01.2019', 5, "Some description 1"),
+  cources: ICourceItem[] =  this.courcesService.getCources();
+ /* [new CourceItem(1, "lesson 1", '10.01.2019', 5, "Some description 1"),
   new CourceItem(2, "lesson 2", '11.04.2019', 80, "Some description 2",true),
-  new CourceItem(3, "lesson 3 test", '04.04.2001', 60, "Some description 3")]
+  new CourceItem(3, "lesson 3 test", '04.04.2001', 60, "Some description 3")]*/
 
 
-  constructor() { }
+
+
+  constructor(private courcesService: CourcesService) { }
 
   ngOnInit() {
     this.logIt(`OnInit`);

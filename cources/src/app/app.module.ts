@@ -15,12 +15,14 @@ import { CourceItemDateDirective} from './cource-item-date.directive';
 import { LessonPipe } from './duration.pipe';
 import { OrderByPipe } from './orderby.pipe';
 import { SearchPipe } from './search.pipe';
+import { AuthModule } from './auth/auth.module';
+import { AuthGuardService } from './auth/auth-guard.service';
 
-
-const routes: Routes = [
-  { path: 'cources', component: CourcesComponent },
+/*const routes: Routes = [
+  { path: 'cources', component: CourcesComponent, canActivate: [AuthGuardService]  },
   { path: '', redirectTo: '/cources', pathMatch: 'full' }
-];
+];*/
+
 
 
 @NgModule({
@@ -41,9 +43,10 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AuthModule
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
