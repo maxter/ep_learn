@@ -16,20 +16,29 @@ export class UpdateItemComponent implements OnInit {
 
   private id: number;
   private sub: any;
-  private courceItem : ICourceItem;
+  public isNew: boolean
+  public courceItem : ICourceItem;
+  public pageTitle : string;
   constructor(private route: ActivatedRoute, private courcesService: CourcesService, private router: Router) { 
   }
 
   ngOnInit() {
+
+   
+
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; 
+      this.isNew = false;
       if(this.id > 0)
+      {
        this.courceItem = this.courcesService.getCourceById(this.id);
+       this.pageTitle = "Update cource item";
+      }
       else
       {
-       
-       //this.courceItem = new CourceItem(newId,"1","2",0,"3",false);
        this.courceItem = new CourceItem();
+       this.isNew = true;
+       this.pageTitle = "Add cource item";
       }
    });
   }

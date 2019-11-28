@@ -2,7 +2,7 @@
     <form class="login-form" action="">
         <div class="form-header">
             <h3>
-                <p>Update cource item</p>
+                <p>{{pageTitle}}</p>
             </h3>
         </div>
 
@@ -23,7 +23,8 @@
         </div>
 
         <div class="form-group">
-            <button (click)="update()" class="form-button" type="submit">Update cource</button>
+            <button *ngIf="!isNew" (click)="update(false)" class="form-button" type="submit">Update cource</button>
+            <button *ngIf="isNew" (click)="update(true)" class="form-button" type="submit">Add new cource</button>
         </div>
     </form>
 </div>

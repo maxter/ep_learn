@@ -32,8 +32,8 @@ export class CourcesService{
     }
 
     addCourceObject(item:ICourceItem){
-      this.cources.push(new CourceItem(item.Id, item.Title, String(item.ConductAt), item.DurationMin, item.Description, item.Starred));
-  }
+      this.cources.push(item);
+    }
 
     removeCource(id:number, title: string, conductAt:string, durationMin:number, description:string, isStarred:boolean = false){
       let index = this.cources.findIndex(x => x.Id == id);
