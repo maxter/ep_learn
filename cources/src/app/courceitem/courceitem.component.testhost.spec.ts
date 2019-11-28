@@ -37,7 +37,7 @@ import { SearchPipe } from '../search.pipe';
     });
 
   
-    it('should raise cource delete event when peress de13,00lete button (output check)', () => {
+  /*  it('should raise cource delete event when peress de13,00lete button (output check)', () => {
       fixture.detectChanges();
 
       const expectedDeletedCourceId = 1;  
@@ -54,7 +54,7 @@ import { SearchPipe } from '../search.pipe';
       const debugElement: DebugElement = fixture.debugElement;
       const itemList = debugElement.queryAll(By.css('.item'));
       expect(itemList.length).toBe(3);
-    });
+    });*/
         
   });
   

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import { NgModule,NO_ERRORS_SCHEMA } from '@angular/core';
+import {Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -49,6 +49,9 @@ import { UpdateItemComponent } from './update-item/update-item.component';
     AuthModule
   ],
   providers: [AuthGuardService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    NO_ERRORS_SCHEMA
+  ]
 })
 export class AppModule { }
