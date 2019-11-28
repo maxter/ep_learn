@@ -2,7 +2,6 @@ import { CourceItem } from './cource-item';
 import { ICourceItem } from './icourceitem';
 
 export class CourcesService{
-  
     private cources: ICourceItem[] = 
     [new CourceItem(1, "lesson 1", '10.01.2019', 5, "Some description 1"),
     new CourceItem(2, "lesson 2", '11.04.2019', 80, "Some description 2",true),
@@ -35,11 +34,13 @@ export class CourcesService{
       this.cources.push(item);
     }
 
-    removeCource(id:number, title: string, conductAt:string, durationMin:number, description:string, isStarred:boolean = false){
+    removeCource(id:number){
+     if(confirm("Are you sure to delete")) {
       let index = this.cources.findIndex(x => x.Id == id);
       if (index > -1) {
         this.cources.splice(index, 1);
       }
+     }
     }
 
 

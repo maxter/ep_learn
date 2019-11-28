@@ -70,6 +70,7 @@ export class CourcesComponent implements OnInit {
   deleteCource(courceId:number)
   {
     console.log(`deleting cource with ID ${courceId}`)
+    this.courcesService.removeCource(courceId);
   }
 
   search(search:string)

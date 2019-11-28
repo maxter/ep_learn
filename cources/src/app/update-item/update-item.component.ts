@@ -23,9 +23,6 @@ export class UpdateItemComponent implements OnInit {
   }
 
   ngOnInit() {
-
-   
-
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; 
       this.isNew = false;
@@ -50,14 +47,14 @@ export class UpdateItemComponent implements OnInit {
     {
       let newId = this.courcesService.getCources().length + 1;
       this.courcesService.addCourceObject(this.courceItem);
-      // checking whether servic was updated
+      // checking whether service was added
       let servives = this.courcesService.getCources();
     }
     else
     {
       this.courcesService.updateCourceObject(this.courceItem);
       this.router.navigate(['/cources'])
-      // checking whether servic was updated
+      // checking whether service was updated
       let servives = this.courcesService.getCources();
     }
   }
