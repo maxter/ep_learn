@@ -8,4 +8,9 @@ export class AuthMock {
 
     public logOff()
     {}
+
+    public auth(user:String, password:String)
+    {
+        
+    }
 }
