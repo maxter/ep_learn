@@ -39,6 +39,4 @@ export class AuthService {
       this.router.navigate(['/cources'])
     }
   }
-
-
 }
