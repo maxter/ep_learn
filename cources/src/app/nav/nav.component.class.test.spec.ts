@@ -10,7 +10,7 @@ describe('NavComponent', () => {
   }));
 
   it('should be created', () => {
-    const com: NavComponent = TestBed.get(AuthService);
+    const com: NavComponent = TestBed.get(NavComponent);
     expect(NavComponent).toBeTruthy();
   });
 
