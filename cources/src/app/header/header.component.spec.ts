@@ -1,3 +1,4 @@
+//ADD AUTH
 /*import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { LogoComponent } from '../logo/logo.component';
 import { HeaderComponent } from './header.component';
@@ -44,5 +45,4 @@ describe('HeaderComponent', () => {
     const cr = crDebugElement.nativeElement;
     expect(cr.textContent).toBeTruthy();
   });
-});
-*/
+});*/
