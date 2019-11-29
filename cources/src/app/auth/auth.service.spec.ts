@@ -22,13 +22,10 @@ describe('AuthService', () => {
     service = TestBed.get(AuthService);
   });
 
-
-
   it('should be created', () => {
     const service: AuthService = TestBed.get(AuthService);
     expect(service).toBeTruthy();
   });
-
 
   it('should navigate', () => {
     const service: AuthService = TestBed.get(AuthService);
