@@ -1,15 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
-
-class RouterMock {
-  navigateByUrl(url: string) {
-    return url;
-  }
-  serializeUrl(url: string) {
-     return url;
-  } 
-}
+import { RouterMock } from '../test/router-mock'
 
 describe('AuthService', () => {
   beforeEach(() => TestBed.configureTestingModule({
