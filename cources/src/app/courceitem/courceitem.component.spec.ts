@@ -4,6 +4,9 @@ import { CourceitemComponent } from './courceitem.component';
 import { ICourceItem } from '../icourceitem';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
+import { LessonPipe } from '../duration.pipe';
+import { CourceItemDateDirective} from '../cource-item-date.directive';
+import { MinLengthValidator } from '@angular/forms';
 
 describe('CourceitemComponent', () => {
   let sut: CourceitemComponent;
@@ -13,7 +16,7 @@ describe('CourceitemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CourceitemComponent ]
+      declarations: [ CourceitemComponent, LessonPipe, CourceItemDateDirective ]
     })
     .compileComponents();
   }));
@@ -25,7 +28,7 @@ describe('CourceitemComponent', () => {
     fixture.detectChanges();
   });
 
- /* it('should create component item', () => {
+ it('should create component item', () => {
     expect(sut).toBeTruthy();
   });
 
@@ -37,7 +40,7 @@ describe('CourceitemComponent', () => {
     const captionDebugElement = debugElement.query(By.css('.caption'));
     const cap = captionDebugElement.nativeElement;
 
-    expect(cap.textContent).toBe(courceItem.Title);
+    expect(cap.textContent).toBe(courceItem.Title.toUpperCase());
   });
 
 
@@ -59,7 +62,7 @@ describe('CourceitemComponent', () => {
     const captionDebugElement = debugElement.query(By.css('.duration'));
     const cap = captionDebugElement.nativeElement;
 
-    expect(cap.textContent).toBe(String(courceItem.DurationMin));
+    expect(cap.textContent).toBe(String(courceItem.DurationMin) + " min. ");
   });
 
   
@@ -70,7 +73,7 @@ describe('CourceitemComponent', () => {
     const captionDebugElement = debugElement.query(By.css('.conduct'));
     const cap = captionDebugElement.nativeElement;
 
-    expect(cap.textContent).toBe('01.01.2020');
+    expect(cap.textContent).toBe('01.10.2019');
   });
 
 
@@ -92,5 +95,5 @@ describe('CourceitemComponent', () => {
     const cap = captionDebugElement.nativeElement;
 
     expect(cap).toBeTruthy();
-  });*/
+  });
 });
