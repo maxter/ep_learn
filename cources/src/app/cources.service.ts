@@ -22,8 +22,15 @@ export class CourcesService{
 
     
     updateCourceObject(courceItem:ICourceItem){
-      let courceIndex = this.cources.findIndex(x => x.Id == courceItem.Id);
-      this.cources[courceIndex] = new CourceItem(courceItem.Id, courceItem.Title, String(courceItem.ConductAt), courceItem.DurationMin, courceItem.Description, courceItem.Starred);
+      if(courceItem.Id != null)
+      {
+        let courceIndex = this.cources.findIndex(x => x.Id == courceItem.Id);
+        this.cources[courceIndex] = new CourceItem(courceItem.Id, courceItem.Title, String(courceItem.ConductAt), courceItem.DurationMin, courceItem.Description, courceItem.Starred);
+      }
+      else{
+        courceItem.Id = this.getCources().length + 1;
+        this.addCourceObject(courceItem);
+      }
     }
     
     addCource(id:number, title: string, conductAt:string, durationMin:number, description:string, isStarred:boolean = false){
