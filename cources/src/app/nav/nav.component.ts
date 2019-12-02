@@ -15,7 +15,7 @@ export class NavComponent implements OnInit {
   }
 
 
-  get BreadCrumb(): string {
+  public get BreadCrumb(): string {
    if(this.authService.isAuthenticated()) 
      return 'Cources';
     return '';

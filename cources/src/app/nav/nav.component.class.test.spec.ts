@@ -1,16 +1,21 @@
 import { NavComponent } from './nav.component';
+import { AuthMock } from '../test/auth-mock';
+import { TestBed } from '@angular/core/testing';
+import { AuthService } from '../auth/auth.service';
 
 describe('NavComponent', () => {
-  let sut: NavComponent;
+  beforeEach(() => TestBed.configureTestingModule({
+    providers: [NavComponent,
+      {provide: AuthService, useClass: AuthMock}]
+  }));
 
-  beforeEach(() => {
-    sut = new NavComponent();
+  it('should be created', () => {
+    const com: NavComponent = TestBed.get(NavComponent);
+    expect(NavComponent).toBeTruthy();
   });
 
-  describe('Example of testing as a class', () => {
-    it('Bread crumbs should show "Cources"', () => {
-      expect(sut.BreadCrumb).toBe('Cources');
-    });
+  it('Bread crumbs should show "Cources"', () => {
+    const nav: NavComponent = TestBed.get(NavComponent);
+    expect(nav.BreadCrumb).toBe('Cources');
   });
-
 });

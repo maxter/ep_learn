@@ -7,6 +7,9 @@ import { CourceItem } from '../cource-item';
 import { DebugElement } from '@angular/core';
 import { OrderByPipe } from '../orderby.pipe';
 import { SearchPipe } from '../search.pipe';
+import { LessonPipe } from '../duration.pipe';
+import { CourceItemDateDirective} from '../cource-item-date.directive';
+
 
 @Component({
     template: `<app-courceitem (deleteCourceEvent)="deleteCource($event)" [courceItem]="item" *ngFor="let item of courcesList  | search : 'Title' : searchText | orderby:'-ConductAt'"></app-courceitem>`
@@ -27,7 +30,7 @@ import { SearchPipe } from '../search.pipe';
   
     beforeEach(() => {   
       TestBed.configureTestingModule({
-        declarations: [ CourceitemComponent, TestHostComponent ]
+        declarations: [ CourceitemComponent, TestHostComponent, LessonPipe, CourceItemDateDirective, OrderByPipe, SearchPipe ]
       })
     });
   
@@ -37,10 +40,10 @@ import { SearchPipe } from '../search.pipe';
     });
 
   
-    it('should raise cource delete event when peress de13,00lete button (output check)', () => {
+  it('should raise cource delete event when peress de13,00lete button (output check)', () => {
       fixture.detectChanges();
 
-      const expectedDeletedCourceId = 1;  
+      const expectedDeletedCourceId = 2;  
       const deleteButton = fixture.debugElement.query(By.css('.delete-button'));
       deleteButton.triggerEventHandler('click', null);
   

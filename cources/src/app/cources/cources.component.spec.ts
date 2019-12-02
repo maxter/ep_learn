@@ -3,7 +3,10 @@ import { SectionComponent } from '../section/section.component';
 import { CourcesComponent } from './cources.component';
 import { CourceitemComponent } from '../courceitem/courceitem.component';
 import { FormsModule }   from '@angular/forms';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { OrderByPipe } from '../orderby.pipe';
+import { SearchPipe } from '../search.pipe';
+import { LessonPipe } from '../duration.pipe';
 
 describe('CourcesComponent', () => {
   let component: CourcesComponent;
@@ -12,10 +15,10 @@ describe('CourcesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        FormsModule
+        FormsModule, 
       ],
-      declarations: [ CourcesComponent, SectionComponent, CourceitemComponent ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      declarations: [ CourcesComponent, SectionComponent, CourceitemComponent, OrderByPipe, SearchPipe, LessonPipe ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));

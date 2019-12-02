@@ -32,13 +32,11 @@ export class AuthService {
 
   public auth(user:String, password:String)
   {
-    if(user=="user" && password=="12345")
+    if(user==="user" && password==="12345")
     {
       localStorage.setItem('isAuth',"true");
       localStorage.setItem('user',user.toString());
       this.router.navigate(['/cources'])
     }
   }
-
-
 }

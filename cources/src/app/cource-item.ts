@@ -21,4 +21,6 @@ export class CourceItem implements ICourceItem {
         this.Description = description;
         this.Starred = starred;
     }
+
+    
 }

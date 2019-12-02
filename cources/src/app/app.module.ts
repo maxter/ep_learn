@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import { NgModule,NO_ERRORS_SCHEMA } from '@angular/core';
+import {Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -17,6 +17,7 @@ import { OrderByPipe } from './orderby.pipe';
 import { SearchPipe } from './search.pipe';
 import { AuthModule } from './auth/auth.module';
 import { AuthGuardService } from './auth/auth-guard.service';
+import { UpdateItemComponent } from './update-item/update-item.component';
 
 /*const routes: Routes = [
   { path: 'cources', component: CourcesComponent, canActivate: [AuthGuardService]  },
@@ -38,7 +39,8 @@ import { AuthGuardService } from './auth/auth-guard.service';
     CourceItemDateDirective,
     LessonPipe,
     OrderByPipe,
-    SearchPipe
+    SearchPipe,
+    UpdateItemComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +49,9 @@ import { AuthGuardService } from './auth/auth-guard.service';
     AuthModule
   ],
   providers: [AuthGuardService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [
+    NO_ERRORS_SCHEMA
+  ]
 })
 export class AppModule { }
