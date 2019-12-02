@@ -6,6 +6,7 @@ import { TouchSequence } from 'selenium-webdriver';
 import {Router} from "@angular/router"
 import { CourceItem } from '../cource-item';
 import { OnDestroy } from "@angular/core";
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-update-item',
@@ -16,7 +17,7 @@ import { OnDestroy } from "@angular/core";
 export class UpdateItemComponent implements OnInit {
 
   private id: number;
-  private sub: any;
+  private sub: Subscription;
   public isNew: boolean
   public courceItem : ICourceItem;
   public pageTitle : string;
