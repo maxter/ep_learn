@@ -9,6 +9,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   { path : 'login', component: LoginComponent},
   { path: 'cources', component: CourcesComponent, canActivate: [AuthGuardService]  },
+  { path: 'cources/:id', component: CourcesComponent, canActivate: [AuthGuardService]  },
   { path: 'update/:id', component: UpdateItemComponent  },
   { path: 'add', component: UpdateItemComponent  },
   { path: '', redirectTo: '/cources', pathMatch: 'full' },
