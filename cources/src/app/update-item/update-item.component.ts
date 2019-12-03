@@ -51,4 +51,10 @@ export class UpdateItemComponent implements OnInit {
       this.courcesService.updateCourceObject(this.courceItem);
       this.router.navigate(['/cources'])
   }
+
+  cancel()
+  {
+    this.router.navigate(['/cources'])
+  }
+  
 }

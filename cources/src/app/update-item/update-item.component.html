@@ -26,6 +26,7 @@
         <div class="form-group">
             <button *ngIf="!isNew" (click)="update(false)" class="form-button" type="submit">Update cource</button>
             <button *ngIf="isNew" (click)="update(true)" class="form-button" type="submit">Add new cource</button>
+            <button (click)="cancel()" class="form-button" type="submit">Cancel</button>
         </div>
     </form>
 </div>
