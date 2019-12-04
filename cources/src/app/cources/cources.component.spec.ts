@@ -7,6 +7,10 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { OrderByPipe } from '../orderby.pipe';
 import { SearchPipe } from '../search.pipe';
 import { LessonPipe } from '../duration.pipe';
+import {Router} from "@angular/router"
+import { RouterMock } from '../test/router-mock'
+import { ActivatedRoute } from '@angular/router';
+import { Observable, of, from } from 'rxjs';
 
 describe('CourcesComponent', () => {
   let component: CourcesComponent;
@@ -18,6 +22,15 @@ describe('CourcesComponent', () => {
         FormsModule, 
       ],
       declarations: [ CourcesComponent, SectionComponent, CourceitemComponent, OrderByPipe, SearchPipe, LessonPipe ],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params:from([{id: 1}]),
+          },
+        },
+        {provide: Router, useClass: RouterMock}
+      ],
       schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();

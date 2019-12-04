@@ -7,6 +7,8 @@ import { By } from '@angular/platform-browser';
 import { LessonPipe } from '../duration.pipe';
 import { CourceItemDateDirective} from '../cource-item-date.directive';
 import { MinLengthValidator } from '@angular/forms';
+import {Router} from "@angular/router"
+import { RouterMock } from '../test/router-mock'
 
 describe('CourceitemComponent', () => {
   let sut: CourceitemComponent;
@@ -16,7 +18,10 @@ describe('CourceitemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CourceitemComponent, LessonPipe, CourceItemDateDirective ]
+      declarations: [ CourceitemComponent, LessonPipe, CourceItemDateDirective ],
+      providers: [
+        {provide: Router, useClass: RouterMock}
+      ],
     })
     .compileComponents();
   }));
