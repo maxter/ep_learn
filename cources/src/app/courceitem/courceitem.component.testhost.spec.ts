@@ -9,6 +9,8 @@ import { OrderByPipe } from '../orderby.pipe';
 import { SearchPipe } from '../search.pipe';
 import { LessonPipe } from '../duration.pipe';
 import { CourceItemDateDirective} from '../cource-item-date.directive';
+import {Router} from "@angular/router"
+import { RouterMock } from '../test/router-mock'
 
 
 @Component({
@@ -30,7 +32,10 @@ import { CourceItemDateDirective} from '../cource-item-date.directive';
   
     beforeEach(() => {   
       TestBed.configureTestingModule({
-        declarations: [ CourceitemComponent, TestHostComponent, LessonPipe, CourceItemDateDirective, OrderByPipe, SearchPipe ]
+        declarations: [ CourceitemComponent, TestHostComponent, LessonPipe, CourceItemDateDirective, OrderByPipe, SearchPipe ],
+        providers: [
+          {provide: Router, useClass: RouterMock}
+        ],
       })
     });
   
