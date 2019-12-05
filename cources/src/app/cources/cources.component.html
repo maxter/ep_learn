@@ -1,6 +1,10 @@
 <app-nav></app-nav>
 <div class="page">
     <app-section (searchCourceEvent)="search($event)"></app-section>
-    <app-courceitem (deleteCourceEvent)="deleteCource($event)" [courceItem]="item" *ngFor="let item of cources  | search : 'Title' : searchText | orderby:'-ConductAt'"></app-courceitem>
+    <app-courceitem (deleteCourceEvent)="deleteCource($event)" [courceItem]="item" *ngFor="let item of cources  | search : 'Title' : searchText "></app-courceitem>
     <span *ngIf="cources?.length == 0">No data. Feel free to add new cource</span>
+    <div class="pages">
+        <button *ngIf="!isFirstPage" (click)="goPrevPage()" class="btn">< Prev</button>
+        <button *ngIf="!isLastPage" (click)="goNextPage()" class="btn">Next ></button>
+    </div>
 </div>
