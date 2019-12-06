@@ -35,6 +35,15 @@ export class CourcesService {
     this.cources[courceIndex] = new CourceItem(id, title, conductAt, durationMin, description, isStarred);
   }
 
+  findCources(keyword:string)
+  {
+    var result : ICourceItem[] = [];
+    this.cources.forEach( (item) => {
+      if(item.Title.includes(keyword)||item.Description.includes(keyword))
+        result.push(item);
+    });
+  }
+
 
   updateCourceObject(courceItem: ICourceItem) {
     if (courceItem.Id != null) {
