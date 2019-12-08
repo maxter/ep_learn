@@ -3,6 +3,7 @@ import { ICourceItem } from './icourceitem';
 import { Observable } from 'rxjs';
 import { HttpClient } from  "@angular/common/http";
 import { Injectable } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
 import 'rxjs/Rx';
 
 @Injectable({
@@ -42,7 +43,7 @@ export class CourcesService {
   }
 
   getCourceById(id: number) {
-    return this.cources.filter(x => x.Id == id)[0]
+    return this.cources.filter(x => x.id == id)[0]
   }
 
   getSize() {
@@ -50,7 +51,7 @@ export class CourcesService {
   }
 
   updateCource(id: number, title: string, conductAt: string, durationMin: number, description: string, isStarred: boolean = false) {
-    let courceIndex = this.cources.findIndex(x => x.Id == id);
+    let courceIndex = this.cources.findIndex(x => x.id == id);
     this.cources[courceIndex] = new CourceItem(id, title, conductAt, durationMin, description, isStarred);
   }
 
@@ -67,26 +68,38 @@ export class CourcesService {
 
 
   updateCourceObject(courceItem: ICourceItem) {
-    if (courceItem.Id != null) {
-      let courceIndex = this.cources.findIndex(x => x.Id == courceItem.Id);
-      this.cources[courceIndex] = new CourceItem(courceItem.Id, courceItem.Title, String(courceItem.ConductAt), courceItem.DurationMin, courceItem.Description, courceItem.Starred);
+    if (courceItem.id != null) {
+      let courceIndex = this.cources.findIndex(x => x.id == courceItem.id);
+      this.cources[courceIndex] = new CourceItem(courceItem.id, courceItem.Title, String(courceItem.ConductAt), courceItem.DurationMin, courceItem.Description, courceItem.Starred);
     }
     else {
-      courceItem.Id = this.getCources().length + 1;
+      courceItem.id = this.getCources().length + 1;
       this.addCourceObject(courceItem);
     }
   }
 
-  addCource(id: number, title: string, conductAt: string, durationMin: number, description: string, isStarred: boolean = false) {
-    this.cources.push(new CourceItem(id, title, conductAt, durationMin, description, isStarred));
-  }
-
   addCourceObject(item: ICourceItem) {
-    this.cources.push(item);
+    var newItem:any = {}
+    newItem.Title = item.Title
+    newItem.ConductAt = item.ConductAt;
+    newItem.DurationMin = item.DurationMin
+    newItem.Description = item.Description
+    newItem.Starred = item.Starred;
+
+    let options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newItem)
+    }
+    return fetch(this.apiURL, options)
+      .then((response) => response.json)
+
   }
 
   removeCource(id: number) {
-    let index = this.cources.findIndex(x => x.Id == id);
+    let index = this.cources.findIndex(x => x.id == id);
     if (index > -1) {
       this.cources.splice(index, 1);
     }
