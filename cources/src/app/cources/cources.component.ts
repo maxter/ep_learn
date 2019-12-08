@@ -110,7 +110,14 @@ export class CourcesComponent implements OnInit {
   search(search: string) {
     this.searchText = search;
     console.log(`searching cource ${search}`)
-    this.cources = this.courcesService.findCources(this.searchText);
+  //  this.cources = this.courcesService.findCources(this.searchText);
+
+
+    this.courcesService.findCources(this.searchText).subscribe(cources => {
+      this.cources = cources as ICourceItem[]
+  })
+
+    
   }
 
   goNextPage() {

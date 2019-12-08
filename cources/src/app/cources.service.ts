@@ -3,6 +3,7 @@ import { ICourceItem } from './icourceitem';
 import { Observable } from 'rxjs';
 import { HttpClient } from  "@angular/common/http";
 import { Injectable } from '@angular/core';
+import 'rxjs/Rx';
 
 @Injectable({
   providedIn: 'root'
@@ -55,12 +56,13 @@ export class CourcesService {
 
   findCources(keyword:string)
   {
-    var result : ICourceItem[] = [];
-    this.cources.forEach( (item) => {
-      if(item.Description.includes(keyword)||item.Description.includes(keyword))
-        result.push(item);
-    });
-    return result;
+    if(!keyword)
+      return this.getObservableCources();
+
+    return this.httpClient.get(this.apiURL)
+    .map((cources: Array<ICourceItem>) => cources.filter(cource => 
+      cource.Title.includes(keyword) || cource.Description.includes(keyword)
+    ));
   }
 
 
