@@ -38,8 +38,8 @@ export class CourcesComponent implements OnInit {
     });
 
     this.route.queryParams.subscribe(params => {
-      this.start = params.start;
-      this.count = params.count;
+      this.start = params._page;
+      this.count = params._limit;
       this.reload();
       console.log("new params! start:" + this.start + "count:" + this.count);
     });
@@ -52,8 +52,8 @@ export class CourcesComponent implements OnInit {
       this.cources.push(this.courcesService.getCourceById(this.id));
     else {
       if (this.start && this.count)
-        this.cources = this.courcesService.getCourcePage(this.start, this.count);
-      else
+        this.courcesService.setCourcePage(this.start, this.count);
+
       this.courcesService.getObservableCources().subscribe(cources => {
           this.cources = cources as ICourceItem[]
       })
@@ -116,14 +116,17 @@ export class CourcesComponent implements OnInit {
   }
 
   goNextPage() {
+
+    this.router.navigate(['/cources'], { queryParams: { '_page': "2", '_limit': 2 } });
+
     if (this.start && this.count) {
-      this.router.navigate(['/cources'], { queryParams: { 'start': Number(this.start) + 1, 'count': 1 } });
+      this.router.navigate(['/cources'], { queryParams: { '_page': Number(this.start) + 1, '_limit': 2 } });
     }
   }
 
   goPrevPage() {
     if (this.start && this.count) {
-      this.router.navigate(['/cources'], { queryParams: { 'start': Number(this.start) - 1, 'count': 1 } });
+      this.router.navigate(['/cources'], { queryParams: { '_page': Number(this.start) - 1, '_limit': 2 } });
     }
   }
 

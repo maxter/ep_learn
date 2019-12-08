@@ -11,35 +11,37 @@ import 'rxjs/Rx';
 })
 export class CourcesService {
 
+  public cources: ICourceItem[] = [];
+
   courcesObservable : Observable<ICourceItem[]>;
   apiURL: string = 'http://localhost:3000/cources';
+  //_page=1&_limit=2
+  page : string;
+  limit : string;
 
   constructor(private  httpClient:HttpClient) {
   }
 
-  public cources: ICourceItem[] = [];
-  /*public cources: ICourceItem[] =
-    [new CourceItem(1, "lesson 1", '10.01.2019', 5, "Some description 1"),
-    new CourceItem(2, "lesson search 2", '11.04.2019', 80, "Some description 2", true),
-    new CourceItem(3, "lesson 3 test", '04.04.2001', 60, "search Some description 3")]*/
+  getParamString() : string
+  {
+    if(this.page && this.limit)
+    {
+      return "?_page="+this.page+"&_limit="+this.limit;
+    }
+    else return "?_page=1&_limit=2";
+  }
 
   getCources(): ICourceItem[] {
      return this.cources;
   }
 
   getObservableCources() : Observable<ICourceItem[]>{
-    return this.httpClient.get<[ICourceItem]>(this.apiURL);
+    return this.httpClient.get<[ICourceItem]>(this.apiURL+this.getParamString());
   }
 
-  getCourcePage(begin: number, amount: number): ICourceItem[] {
-    var res: ICourceItem[] = [];
-    var arraStart : number = begin - 1;
-    var end : number = Number(arraStart)+Number(amount);
-
-    for (let i = arraStart; i < end; i++) {
-      res.push(this.cources[i]);
-    }
-    return res;
+  setCourcePage(begin: number, amount: number) {
+    this.page = String(begin);
+    this.limit = String(amount);
   }
 
   getCourceById(id: number) {
