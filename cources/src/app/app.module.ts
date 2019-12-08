@@ -19,6 +19,7 @@ import { AuthModule } from './auth/auth.module';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { UpdateItemComponent } from './update-item/update-item.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HttpClientModule } from  '@angular/common/http';
 
 /*const routes: Routes = [
   { path: 'cources', component: CourcesComponent, canActivate: [AuthGuardService]  },
@@ -48,7 +49,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AuthModule
+    AuthModule,
+    HttpClientModule
   ],
   providers: [AuthGuardService],
   bootstrap: [AppComponent],

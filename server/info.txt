@@ -1,0 +1,10 @@
+npm install -g json-server
+json-server --watch cources.json
+
+
+GET /cources for getting the cources,
+GET /cources/<id> for getting a single customer by id,
+POST /cources for creating a new customer,
+PUT /cources/<id> for updating a customer by id,
+PATCH /cources/<id> for partially updating a customer by id,
+DELETE /cources/<id> for deleting a customer by id.

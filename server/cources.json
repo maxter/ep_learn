@@ -1,0 +1,8 @@
+{
+  "cources": [
+    { "Id": 1, "Title": "dot net", "ConductAt": "10.01.2016", "DurationMin":"60", "Description":"some description text 1","Starred":"false" },
+    { "Id": 2, "Title": "java", "ConductAt": "10.01.2017", "DurationMin":"50", "Description":"some description text 2","Starred":"false" },   
+    { "Id": 3, "Title": "python", "ConductAt": "10.01.2018", "DurationMin":"90", "Description":"some description text 3","Starred":"true" },
+    { "Id": 4, "Title": "angular", "ConductAt": "10.01.2119", "DurationMin":"65", "Description":"some description text 4","Starred":"false" }
+  ] 
+}

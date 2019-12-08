@@ -54,7 +54,9 @@ export class CourcesComponent implements OnInit {
       if (this.start && this.count)
         this.cources = this.courcesService.getCourcePage(this.start, this.count);
       else
-        this.cources = this.courcesService.getCources();
+      this.courcesService.getObservableCources().subscribe(cources => {
+          this.cources = cources as ICourceItem[]
+      })
     }
 
     if (this.start == 1)
