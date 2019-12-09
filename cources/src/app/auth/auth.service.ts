@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Router} from "@angular/router"
+import { HttpClient } from  "@angular/common/http"; 
+import { UserAuth } from  '../user-auth'; 
+import * as moment from 'moment'
 
 
 @Injectable({
@@ -7,7 +10,7 @@ import {Router} from "@angular/router"
 })
 
 export class AuthService {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private  http:HttpClient) {}
 
   public isAuthenticated(): boolean {
     let isAuth = localStorage.getItem('isAuth');
@@ -38,5 +41,25 @@ export class AuthService {
       localStorage.setItem('user',user.toString());
       this.router.navigate(['/cources'])
     }
+
+
+    /* SET TOKEN RECIEVED FROM AUTH SERVICE. COMMENTED BECAUSE OF LACK OF BACK END PART
+    var userAuth:UserAuth
+    userAuth.email = user;
+    userAuth.password = password;
+
+     return this.http.post('localhost:3000/login', userAuth)
+    .do(res => this.setSession) 
+    .shareReplay();
+    */
+
   }
+
+
+  private setSession(authResult) {
+   const expiresAt = moment().add(authResult.expiresIn,'second');
+    localStorage.setItem('id_token', authResult.idToken);
+    localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
+ }         
+
 }

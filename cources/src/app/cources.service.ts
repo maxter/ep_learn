@@ -1,7 +1,7 @@
 import { CourceItem } from './cource-item';
 import { ICourceItem } from './icourceitem';
 import { Observable } from 'rxjs';
-import { HttpClient } from  "@angular/common/http";
+import { HttpClient } from  "@angular/common/http"; 
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import 'rxjs/Rx';
@@ -15,7 +15,6 @@ export class CourcesService {
 
   courcesObservable : Observable<ICourceItem[]>;
   apiURL: string = 'http://localhost:3000/cources';
-  //_page=1&_limit=2
   page : string;
   limit : string;
 

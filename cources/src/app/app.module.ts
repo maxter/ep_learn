@@ -20,11 +20,8 @@ import { AuthGuardService } from './auth/auth-guard.service';
 import { UpdateItemComponent } from './update-item/update-item.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from  '@angular/common/http';
-
-/*const routes: Routes = [
-  { path: 'cources', component: CourcesComponent, canActivate: [AuthGuardService]  },
-  { path: '', redirectTo: '/cources', pathMatch: 'full' }
-];*/
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth/auth-interceptor';
 
 
 
@@ -52,7 +49,11 @@ import { HttpClientModule } from  '@angular/common/http';
     AuthModule,
     HttpClientModule
   ],
-  providers: [AuthGuardService],
+  providers: [AuthGuardService,   {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent],
   schemas: [
     NO_ERRORS_SCHEMA
