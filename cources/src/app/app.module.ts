@@ -18,6 +18,7 @@ import { SearchPipe } from './search.pipe';
 import { AuthModule } from './auth/auth.module';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { UpdateItemComponent } from './update-item/update-item.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 /*const routes: Routes = [
   { path: 'cources', component: CourcesComponent, canActivate: [AuthGuardService]  },
@@ -40,7 +41,8 @@ import { UpdateItemComponent } from './update-item/update-item.component';
     LessonPipe,
     OrderByPipe,
     SearchPipe,
-    UpdateItemComponent
+    UpdateItemComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

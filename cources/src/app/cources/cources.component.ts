@@ -4,8 +4,9 @@ import { CourceItem } from '../cource-item';
 import { OrderByPipe } from '../orderby.pipe';
 import { SearchPipe } from '../search.pipe';
 import {CourcesService} from '../cources.service';
-
-
+import { Subscription } from 'rxjs';
+import {Router} from "@angular/router"
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cources',
@@ -17,15 +18,23 @@ export class CourcesComponent implements OnInit {
 
   filterargs = {Title: 'test'};
   searchText = "";
+  cources: ICourceItem[] = [];  
+  private sub: Subscription;
+  private id: number;
 
-  cources: ICourceItem[];  
-
-
-  constructor(private courcesService: CourcesService) { }
+  constructor(private courcesService: CourcesService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+      this.id = +params['id']; 
+    });
+
+    if(this.id > 0)
+      this.cources.push(this.courcesService.getCourceById(this.id));
+    else
+      this.cources=this.courcesService.getCources();
+
     this.logIt(`OnInit`);
-    this.cources = this.courcesService.getCources();
   }
 
   ngOnChanges()

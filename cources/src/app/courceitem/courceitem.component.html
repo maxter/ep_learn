@@ -9,7 +9,7 @@
         <div class="course_text ">{{courceItem?.Description}}</div>
     </div>
     <div class="actions ">
-        <button class="btn edit-button "><i class="fa fa-user "></i> Edit</button>
+        <button (click)="editCource()" class="btn edit-button "><i class="fa fa-user "></i> Edit</button>
         <button (click)="deleteCource()" class="btn delete-button "><i class="fa fa-sign-out "></i> Delete</button>
     </div>
 </div>

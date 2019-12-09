@@ -5,6 +5,8 @@ import { ICourceItem } from '../icourceitem';
 import { TouchSequence } from 'selenium-webdriver';
 import {Router} from "@angular/router"
 import { CourceItem } from '../cource-item';
+import { OnDestroy } from "@angular/core";
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-update-item',
@@ -15,7 +17,7 @@ import { CourceItem } from '../cource-item';
 export class UpdateItemComponent implements OnInit {
 
   private id: number;
-  private sub: any;
+  private sub: Subscription;
   public isNew: boolean
   public courceItem : ICourceItem;
   public pageTitle : string;
@@ -40,23 +42,19 @@ export class UpdateItemComponent implements OnInit {
    });
   }
 
-  update(isNew:boolean)
-  {
-
-    if(isNew)
-    {
-      let newId = this.courcesService.getCources().length + 1;
-      this.courcesService.addCourceObject(this.courceItem);
-      // checking whether service was added
-      let servives = this.courcesService.getCources();
-    }
-    else
-    {
-      this.courcesService.updateCourceObject(this.courceItem);
-      this.router.navigate(['/cources'])
-      // checking whether service was updated
-      let servives = this.courcesService.getCources();
-    }
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
+  update()
+  {
+      this.courcesService.updateCourceObject(this.courceItem);
+      this.router.navigate(['/cources'])
+  }
+
+  cancel()
+  {
+    this.router.navigate(['/cources'])
+  }
+  
 }

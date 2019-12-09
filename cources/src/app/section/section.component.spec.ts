@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule }   from '@angular/forms';
 import { SectionComponent } from './section.component';
+import {Router} from "@angular/router"
+import { RouterMock } from '../test/router-mock'
 
 describe('SectionComponent', () => {
   let component: SectionComponent;
@@ -11,7 +13,10 @@ describe('SectionComponent', () => {
       imports: [
         FormsModule
       ],
-      declarations: [ SectionComponent ]
+      declarations: [ SectionComponent ],
+      providers: [
+        {provide: Router, useClass: RouterMock}
+      ],
     })
     .compileComponents();
   }));

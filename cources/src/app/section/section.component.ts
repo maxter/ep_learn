@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {Router} from "@angular/router"
 
 @Component({
   selector: 'app-section',
@@ -11,13 +12,18 @@ export class SectionComponent implements OnInit {
 
   searchText : string = "";
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   searchCource() : void {
    this.searchCourceEvent.emit(this.searchText);
+  }
+
+  new()
+  {
+    this.router.navigate(['/cources/new'])
   }
 
 }

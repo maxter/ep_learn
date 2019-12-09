@@ -3,6 +3,7 @@ import { CourceItem } from '../cource-item';
 import { ICourceItem } from '../icourceitem';
 import { CourceItemDateDirective} from '../cource-item-date.directive';
 import { LessonPipe } from '../duration.pipe';
+import {Router} from "@angular/router"
 
 @Component({
   selector: 'app-courceitem',
@@ -19,15 +20,19 @@ export class CourceitemComponent implements OnInit {
     return this.courceItem.Id;
   }
 
-  constructor() { 
+  constructor(private router: Router) { 
   }
 
   ngOnInit() {
   }
 
   deleteCource() : void {
-   // if (confirm("are you sure to delete cource!")) 
     this.deleteCourceEvent.emit(this.courceItem.Id);
+  }
+
+  editCource() : void {
+    var navPath = "update/"+this.courceItem.Id
+    this.router.navigate([navPath])
   }
 }
 
