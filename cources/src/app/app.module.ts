@@ -24,6 +24,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoaderComponent } from './loader/loader.component';
+import { LoaderService } from './loader.service';
+import { LoaderInterceptor } from './loader.interceptor';
 
 
 @NgModule({
@@ -56,7 +58,8 @@ import { LoaderComponent } from './loader/loader.component';
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }],
+  }, LoaderService,
+  { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas: [
     NO_ERRORS_SCHEMA
