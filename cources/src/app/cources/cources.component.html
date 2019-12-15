@@ -1,4 +1,4 @@
-<app-nav></app-nav>
+<app-nav></app-nav> 
 <div class="page">
     <app-section (searchCourceEvent)="search($event)"></app-section>
     <app-courceitem (deleteCourceEvent)="deleteCource($event)" [courceItem]="item" *ngFor="let item of cources"></app-courceitem>

@@ -1,11 +1,8 @@
 <div class="sec_con">
     <div class="search">
-        <form class="example form_sec" action="">
-            <input type="text" placeholder="Search.." name="search" [(ngModel)]="searchText">
-            <button (click)="searchCource()" type="submit"><i class="fa fa-search"></i></button>
-        </form>
+            <input placeholder="Search.."  type="text" [(ngModel)]='searchInput' (ngModelChange)='changed($event)'>
     </div>
-    <div class="add">
+    <div class="add"> 
         <button (click)="new()" class="btn"><i class="fa fa-plus"></i>Add course</button>
     </div>
 </div>
