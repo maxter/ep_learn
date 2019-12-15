@@ -17,7 +17,7 @@ export class CourceitemComponent implements OnInit {
   @Output() deleteCourceEvent = new EventEmitter<number>();
   
   get courceId() {
-    return this.courceItem.Id;
+    return this.courceItem.id;
   }
 
   constructor(private router: Router) { 
@@ -27,11 +27,11 @@ export class CourceitemComponent implements OnInit {
   }
 
   deleteCource() : void {
-    this.deleteCourceEvent.emit(this.courceItem.Id);
+    this.deleteCourceEvent.emit(this.courceItem.id);
   }
 
   editCource() : void {
-    var navPath = "update/"+this.courceItem.Id
+    var navPath = "update/"+this.courceItem.id
     this.router.navigate([navPath])
   }
 }

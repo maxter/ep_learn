@@ -1,0 +1,84 @@
+{
+  "users": [],
+  "cources": [
+    {
+      "id": 1,
+      "Title": "dot net",
+      "ConductAt": "10.01.2016",
+      "DurationMin": "60",
+      "Description": "some description text 1",
+      "Starred": "false"
+    },
+    {
+      "id": 2,
+      "Title": "java",
+      "ConductAt": "10.01.2017",
+      "DurationMin": "50",
+      "Description": "some description text 2",
+      "Starred": "false"
+    },
+    {
+      "id": 3,
+      "Title": "python",
+      "ConductAt": "10.01.2018",
+      "DurationMin": "90",
+      "Description": "some description text 3",
+      "Starred": "true"
+    },
+    {
+      "id": 4,
+      "Title": "angular",
+      "ConductAt": "10.01.2119",
+      "DurationMin": "65",
+      "Description": "some description text 4",
+      "Starred": "false"
+    },
+    {
+      "Title": "dot net 2",
+      "ConductAt": "10.01.2016",
+      "DurationMin": "60",
+      "Description": "some description text 1",
+      "Starred": "false",
+      "id": 5
+    },
+    {
+      "Title": "dot net 2ffgfg",
+      "ConductAt": "10.01.2016",
+      "DurationMin": "60",
+      "Description": "some description text 1",
+      "Starred": "false",
+      "id": 6
+    },
+    {
+      "Title": "dot net 2ffgfg",
+      "ConductAt": "10.01.2016",
+      "DurationMin": "60",
+      "Description": "some description text 1",
+      "Starred": "false",
+      "id": 7
+    },
+    {
+      "Title": "d44ot net 2ffgfg",
+      "ConductAt": "10.01.2016",
+      "DurationMin": "60",
+      "Description": "some description text 1",
+      "Starred": "false",
+      "id": 8
+    },
+    {
+      "Title": "tttd22222fsdsfsfsdf",
+      "ConductAt": "10.01.2016",
+      "DurationMin": "55",
+      "Description": "addsfsdfsdfdsfs",
+      "Starred": "false",
+      "id": 9
+    },
+    {
+      "Title": "test",
+      "ConductAt": "2018-01-01",
+      "DurationMin": "999",
+      "Description": "fdsfdsfsdfsdf",
+      "id": 10
+    }
+  ]
+}

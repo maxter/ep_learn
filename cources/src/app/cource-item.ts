@@ -1,7 +1,7 @@
 import { ICourceItem } from './icourceitem';
 
 export class CourceItem implements ICourceItem {
-    Id:number; 
+    id:number; 
     Title: string;
     ConductAt:Date; 
     DurationMin:number;
@@ -14,7 +14,7 @@ export class CourceItem implements ICourceItem {
         if(id == null || title == null || conductAt == null || durationMin == null || description==null)
           return;
 
-        this.Id = id;
+        this.id = id;
         this.Title = title;
         this.ConductAt = new Date(conductAt);
         this.DurationMin = durationMin;

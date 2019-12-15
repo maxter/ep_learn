@@ -23,14 +23,14 @@ describe('CourcesService', () => {
     const service: CourcesService = TestBed.get(CourcesService);
     service.cources =  mockData;
     let cources = service.getCources();
-    expect(cources.length).toBe(2) && expect(cources[1].Id).toBe(2) && expect(cources[0].Id).toBe(1);
+    expect(cources.length).toBe(2) && expect(cources[1].id).toBe(2) && expect(cources[0].id).toBe(1);
   });
 
   it('should return particular cource', () => {
     const service: CourcesService = TestBed.get(CourcesService);
     service.cources = mockData;
     let cource = service.getCourceById(2);
-    expect(cource.Id).toBe(2)
+    expect(cource.id).toBe(2)
   });
 
   it('should delete particular cource', () => {
@@ -38,7 +38,7 @@ describe('CourcesService', () => {
     service.cources = mockData;
     service.removeCource(2);
     let cources = service.getCources();
-    expect(cources.length).toBe(1) && expect(cources[1].Id).toBe(1);
+    expect(cources.length).toBe(1) && expect(cources[1].id).toBe(1);
   });  
 
   it('should add cource', () => {

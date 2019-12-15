@@ -1,5 +1,5 @@
 export interface ICourceItem {
-    Id:number; 
+    id:number; 
     Title: string;
     ConductAt:Date; 
     DurationMin:number;

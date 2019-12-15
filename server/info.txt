@@ -1,0 +1,7 @@
+npm install -g json-server
+json-server --watch cources.json
+
+npm install -D json-server-auth
+node server.js
+
+json-server db.json -m ./node_modules/json-server-auth
