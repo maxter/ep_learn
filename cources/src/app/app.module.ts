@@ -22,7 +22,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from  '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth/auth-interceptor';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoaderComponent } from './loader/loader.component';
 
 
 @NgModule({
@@ -40,14 +41,16 @@ import { AuthInterceptor } from './auth/auth-interceptor';
     OrderByPipe,
     SearchPipe,
     UpdateItemComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     AuthModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [AuthGuardService,   {
     provide: HTTP_INTERCEPTORS,
