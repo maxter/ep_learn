@@ -11,7 +11,11 @@ export class LoaderInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         this.loaderService.show();
         return next.handle(req).pipe(
-           finalize(() => this.loaderService.hide())
+            finalize(() => 
+            {
+               // it seems it loads to fast to notice, to test it comment line below
+               this.loaderService.hide()
+            })
         );
     }
 }
