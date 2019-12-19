@@ -103,7 +103,13 @@ export class CourcesService {
     this.httpClient
     .delete('http://localhost:3000/cources/'+id)
     .subscribe((s) => {
+      
+      
       console.log(s);
     });
+
+   
+
+
   }
 }
