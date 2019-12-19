@@ -100,11 +100,10 @@ export class CourcesService {
   }
 
   removeCource(id: number) {
-    let index = this.cources.findIndex(x => x.id == id);
-    if (index > -1) {
-      this.cources.splice(index, 1);
-    }
+    this.httpClient
+    .delete('http://localhost:3000/cources/'+id)
+    .subscribe((s) => {
+      console.log(s);
+    });
   }
-
-
 }
