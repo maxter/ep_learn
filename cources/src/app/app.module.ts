@@ -27,6 +27,13 @@ import { LoaderComponent } from './loader/loader.component';
 import { LoaderService } from './loader.service';
 import { LoaderInterceptor } from './loader.interceptor';
 
+import { appEffects, REDUCER_TOKEN } from "./";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { StoreModule } from "@ngrx/store";
+import { EffectsModule } from "@ngrx/effects";
+import { StoreRouterConnectingModule } from "@ngrx/router-store";
+import { environment } from "../environments/environment";
+
 
 @NgModule({
   declarations: [
@@ -52,7 +59,18 @@ import { LoaderInterceptor } from './loader.interceptor';
     FormsModule,
     AuthModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    StoreModule.forRoot(REDUCER_TOKEN),
+    StoreRouterConnectingModule.forRoot(),
+    ...(environment.production
+      ? []
+      : [
+          StoreDevtoolsModule.instrument({
+            name: "CRUD Application",
+            logOnly: environment.production
+          })
+        ]),
+    EffectsModule.forRoot([...appEffects])
   ],
   providers: [AuthGuardService,   {
     provide: HTTP_INTERCEPTORS,
