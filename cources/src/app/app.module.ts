@@ -27,6 +27,11 @@ import { LoaderComponent } from './loader/loader.component';
 import { LoaderService } from './loader.service';
 import { LoaderInterceptor } from './loader.interceptor';
 
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment'; // Angular CLI environment
+import { StoreModule } from '@ngrx/store';
+import { CourcesReducer } from './redux/cources.reducer';
+
 
 @NgModule({
   declarations: [
@@ -52,7 +57,12 @@ import { LoaderInterceptor } from './loader.interceptor';
     FormsModule,
     AuthModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    StoreModule.forRoot({ cources: CourcesReducer }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
   ],
   providers: [AuthGuardService,   {
     provide: HTTP_INTERCEPTORS,

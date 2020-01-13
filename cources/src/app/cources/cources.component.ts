@@ -8,6 +8,10 @@ import { Subscription } from 'rxjs';
 import { Router } from "@angular/router"
 import { ActivatedRoute } from '@angular/router';
 
+import {select, Store} from '@ngrx/store';
+import {CourceRemove} from '../redux/cources.actions'; 
+import {Observable} from 'rxjs';
+
 
 @Component({
   selector: 'app-cources',
@@ -16,6 +20,8 @@ import { ActivatedRoute } from '@angular/router';
   providers: [CourcesService]
 })
 export class CourcesComponent implements OnInit {
+
+  cources$: Observable<CourceItem[]>;
 
   filterargs = { Title: 'test' };
   searchText = "";
@@ -28,7 +34,11 @@ export class CourcesComponent implements OnInit {
   private isFirstPage: boolean;
   private isLastPage: boolean;
 
-  constructor(private courcesService: CourcesService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private store: Store<{ cources: CourceItem[] }>, private courcesService: CourcesService, private route: ActivatedRoute, private router: Router) {
+    this.cources$ = store.pipe(select('cources'));
+  }
+
+ 
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -70,34 +80,6 @@ export class CourcesComponent implements OnInit {
       this.isLastPage = false;
   }
 
-  ngOnChanges() {
-    //this.logIt(`ngOnChanges`);
-  }
-
-  ngDoCheck() {
-    //this.logIt(`ngDoCheck`);
-  }
-
-  ngAfterContentInit() {
-    //this.logIt(`ngAfterContentInit`);
-  }
-
-  ngAfterContentChecked() {
-    //this.logIt(`ngAfterContentChecked`);
-  }
-
-  ngAfterViewInit() {
-    //this.logIt(`ngAfterViewInit`);
-  }
-
-  ngAfterViewChecked() {
-    //this.logIt(`ngAfterViewChecked`);
-  }
-
-  ngOnDestroy() {
-    //this.logIt(`ngOnDestroy`);
-  }
-
   logIt(msg: string) {
     console.log(msg);
   }
@@ -117,7 +99,6 @@ export class CourcesComponent implements OnInit {
   }
 
   goNextPage() {
-
     this.router.navigate(['/cources'], { queryParams: { '_page': "2", '_limit': 2 } });
 
     if (this.start && this.count) {
