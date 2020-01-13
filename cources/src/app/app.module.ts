@@ -31,6 +31,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment'; // Angular CLI environment
 import { StoreModule } from '@ngrx/store';
 import { CourcesReducer } from './redux/cources.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { CourcesEffects } from './redux/cources.effects'
 
 
 @NgModule({
@@ -59,7 +61,8 @@ import { CourcesReducer } from './redux/cources.reducer';
     HttpClientModule,
     MatProgressSpinnerModule,
     StoreModule.forRoot({ cources: CourcesReducer }),
-    StoreDevtoolsModule.instrument({
+    EffectsModule.forRoot([CourcesEffects]),
+    StoreDevtoolsModule.instrument({ 
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
