@@ -45,32 +45,24 @@ export class CourcesEffects {
   );
 
 
-  @Effect()
-  addCourse$ = this.actions$.ofType(CourcesActionTypes.Save).pipe(
-    switchMap((action: ActionEx) => {
 
-      // console.log('payload :', action.payload);
-      return this.courceService
-        .addCourceObject(action.payload)
-        .pipe(
-          map(fromService => {
-            console.log(' A DDDDDDDDDDDDDDDDDDD ');
-            console.log(fromService);
-            console.log('return action');
-            return new CourceAdd(action.payload)
-          })
-        );
-    })
-  );
+  @Effect() 
+  addCourse$: Observable<Action> = this.actions$
+    .ofType(CourcesActionTypes.Save)
+    .do((action: ActionEx) => {
+       console.log(action.payload);
+     // return new CourceAdd(action.payload);
+    });
+
+
+  // @Effect()
+  // addCourse$ = this.actions$.ofType(CourcesActionTypes.Save).pipe(
+  //   switchMap((action: ActionEx) => this.courceService.addCourceObject(action.payload)),
+  //   //switchMap((action: ActionEx) => (new CourceAdd(action.payload)))
+  // );
 
 
 
-  //   @Effect() 
-  //   loadAllCources$: Observable<Action> = this.actions$
-  //     .ofType('CREATE', 'UPDATE')
-  //     .do(action => {
-  //        console.log(action);
-  //     });
 
 }
 
