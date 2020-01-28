@@ -77,6 +77,7 @@ export class CourcesService {
   }
 
   addCourceObject(item: ICourceItem) {
+
     var newItem: any = {}
     newItem.Title = item.Title
     newItem.ConductAt = item.ConductAt;
@@ -88,13 +89,12 @@ export class CourcesService {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newItem)
+      }
     }
     // return fetch(this.apiURL, options)
     // .then((response) => response.json)
     console.log(' SERVICE ADD ')
-    return this.httpClient.post<[ICourceItem]>(this.apiURL, options.body);
+    return this.httpClient.post<[ICourceItem]>(this.apiURL, JSON.stringify(newItem), options);
 
   }
 
