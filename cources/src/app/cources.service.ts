@@ -1,8 +1,8 @@
 import { CourceItem } from './cource-item';
 import { ICourceItem } from './icourceitem';
 import { Observable } from 'rxjs';
-import { HttpClient } from  "@angular/common/http"; 
-import { Injectable } from '@angular/core'; 
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import 'rxjs/Rx';
 
@@ -13,29 +13,27 @@ export class CourcesService {
 
   public cources: ICourceItem[] = [];
 
-  courcesObservable : Observable<ICourceItem[]>;
+  courcesObservable: Observable<ICourceItem[]>;
   apiURL: string = 'http://localhost:3000/cources';
-  page : string;
-  limit : string;
+  page: string;
+  limit: string;
 
-  constructor(private  httpClient:HttpClient) {
+  constructor(private httpClient: HttpClient) {
   }
 
-  getParamString() : string
-  {
-    if(this.page && this.limit)
-    {
-      return "?_page="+this.page+"&_limit="+this.limit;
+  getParamString(): string {
+    if (this.page && this.limit) {
+      return "?_page=" + this.page + "&_limit=" + this.limit;
     }
     else return "?_page=1&_limit=2";
   }
 
   getCources(): ICourceItem[] {
-     return this.cources;
+    return this.cources;
   }
 
-  getObservableCources() : Observable<ICourceItem[]>{
-    return this.httpClient.get<[ICourceItem]>(this.apiURL+this.getParamString());
+  getObservableCources(): Observable<ICourceItem[]> {
+    return this.httpClient.get<[ICourceItem]>(this.apiURL + this.getParamString());
   }
 
   setCourcePage(begin: number, amount: number) {
@@ -56,15 +54,14 @@ export class CourcesService {
     this.cources[courceIndex] = new CourceItem(id, title, conductAt, durationMin, description, isStarred);
   }
 
-  findCources(keyword:string)
-  {
-    if(!keyword)
+  findCources(keyword: string) {
+    if (!keyword)
       return this.getObservableCources();
 
     return this.httpClient.get(this.apiURL)
-    .map((cources: Array<ICourceItem>) => cources.filter(cource => 
-      cource.Title.includes(keyword) || cource.Description.includes(keyword)
-    ));
+      .map((cources: Array<ICourceItem>) => cources.filter(cource =>
+        cource.Title.includes(keyword) || cource.Description.includes(keyword)
+      ));
   }
 
 
@@ -80,7 +77,7 @@ export class CourcesService {
   }
 
   addCourceObject(item: ICourceItem) {
-    var newItem:any = {}
+    var newItem: any = {}
     newItem.Title = item.Title
     newItem.ConductAt = item.ConductAt;
     newItem.DurationMin = item.DurationMin
@@ -94,21 +91,23 @@ export class CourcesService {
       },
       body: JSON.stringify(newItem)
     }
-    return fetch(this.apiURL, options)
-      .then((response) => response.json)
+    // return fetch(this.apiURL, options)
+    // .then((response) => response.json)
+    console.log(' SERVICE ADD ')
+    return this.httpClient.post<[ICourceItem]>(this.apiURL, options.body);
 
   }
 
   removeCource(id: number) {
     this.httpClient
-    .delete('http://localhost:3000/cources/'+id)
-    .subscribe((s) => {
-      
-      
-      console.log(s);
-    });
+      .delete('http://localhost:3000/cources/' + id)
+      .subscribe((s) => {
 
-   
+
+        console.log(s);
+      });
+
+
 
 
   }
