@@ -6,8 +6,10 @@ export const initialState = [];
 export function CourcesReducer(state = initialState, action: ActionEx) {
 
   switch (action.type) {
-    case CourcesActionTypes.Add:
+    case CourcesActionTypes.Save:
       return [...state, action.payload];
+    case CourcesActionTypes.Add:
+      return [...state];
     case CourcesActionTypes.LoadCourcesSuccess:
       return action.payload;
     case CourcesActionTypes.Remove:

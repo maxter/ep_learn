@@ -11,6 +11,7 @@ import { of } from 'rxjs/observable/of';
 import { map, switchMap, catchError } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
+
 import 'rxjs/add/operator/do';
 import {
   pipe

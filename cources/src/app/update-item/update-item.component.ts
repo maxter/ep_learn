@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 
 import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
-import {CourceAdd} from '../redux/cources.actions';
+import {CourceSave} from '../redux/cources.actions';
 
 @Component({
   selector: 'app-update-item',
@@ -59,7 +59,7 @@ export class UpdateItemComponent implements OnInit {
 
     const item = new CourceItem();
     item.Title = this.courceItem.Title;
-    this.store.dispatch(new CourceAdd(item));
+    this.store.dispatch(new CourceSave(item));
     this.router.navigate(['/cources']);
 
      /* this.courcesService.updateCourceObject(this.courceItem);
