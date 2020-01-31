@@ -1,4 +1,5 @@
 {
-    "demo.addCource": "Dodać kurs",
-    "demo.text": "This is a simple demonstration app for ngx-translate"
+    "demo.addCource": "Dodaj kurs",
+    "demo.edit": "Edytuj",
+    "demo.delete": "Usuń"
 }
