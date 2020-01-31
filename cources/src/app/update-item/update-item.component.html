@@ -1,33 +1,27 @@
 <app-nav></app-nav>
 <div class="wrap">
-    <form class="login-form" action="">
-        <div class="form-header">
-            <h3>
-                <p>{{pageTitle}}</p>
-            </h3>
+    <form [formGroup]="courceForm" (submit)="onSubmit()">
+        <label for="Title">Title</label>
+        <input class="form-input" type="text" id="name" formControlName="Title" />
+        <div class="error" *ngIf="isControlInvalid('Title')">
+            Title  is required and should be less than 50 symbols
         </div>
+        <br/><br/>
+      
+        <label for="Description">Description</label>
+        <textarea rows="4" cols="50" class="form-input" placeholder="Description" name="Description"  formControlName="Description"></textarea>
+        <div class="error" *ngIf="isControlInvalid('Description')">
+            Description is required and should be less than 500 symbols
+        </div>
+        <br/><br/>
 
-        <div class="form-group">
-            <input type="text" class="form-input" placeholder="cource name" name="title" [(ngModel)]="courceItem.Title">
+        <label for="Length">Length</label>
+        <input class="form-input" type="text" id="Length" formControlName="Length" />
+        <div class="error" *ngIf="isControlInvalid('Length')">
+            Length is required and should be a number
         </div>
-
-        <div class="form-group">
-            <textarea rows="4" cols="50" class="form-input" placeholder="description" name="courceDesc" [(ngModel)]="courceItem.Description">
-            </textarea>
-        </div>
-
-        <div class="form-group">
-            <input type="date" class="form-input" placeholder="date" name="courceDate" [(ngModel)]="courceItem.ConductAt">
-        </div>
-
-        <div class="form-group">
-            <input type="text" class="form-input" placeholder="length" name="courceLength" [(ngModel)]="courceItem.DurationMin">
-        </div>
-
-        <div class="form-group">
-            <button *ngIf="!isNew" (click)="update(false)" class="form-button" type="submit">Update cource</button>
-            <button *ngIf="isNew" (click)="update(true)" class="form-button" type="submit">Add new cource</button>
-            <button (click)="cancel()" class="form-button" type="submit">Cancel</button>
-        </div>
-    </form>
+        <br/><br/>
+      
+        <button class="form-button" type="submit" type="submit">Add new cource</button>
+      </form>
 </div>

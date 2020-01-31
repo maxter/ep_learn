@@ -33,6 +33,7 @@ import { StoreModule } from '@ngrx/store';
 import { CourcesReducer } from './redux/cources.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { CourcesEffects } from './redux/cources.effects'
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { CourcesEffects } from './redux/cources.effects'
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     FormsModule,
     AuthModule,
