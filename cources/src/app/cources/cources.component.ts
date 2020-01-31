@@ -3,7 +3,7 @@ import { ICourceItem } from '../icourceitem';
 import { CourceItem } from '../cource-item';
 import { OrderByPipe } from '../orderby.pipe';
 import { SearchPipe } from '../search.pipe';
-import { CourcesService } from '../cources.service';
+import { CourcesService } from '../cources.service'; 
 import { Subscription } from 'rxjs';
 import { Router } from "@angular/router"
 import { ActivatedRoute } from '@angular/router';
@@ -103,8 +103,9 @@ export class CourcesComponent implements OnInit {
   }
 
   deleteCource(courceId: number) {
-    console.log(`deleting cource with ID ${courceId}`)
+    console.log(`deleting cource with ID ${courceId}`);
     this.courcesService.removeCource(courceId);
+    this.ngOnInit();
   }
 
   search(search: string) {

@@ -2,7 +2,7 @@ import { CourceItem } from './cource-item';
 import { ICourceItem } from './icourceitem';
 import { Observable } from 'rxjs';
 import { HttpClient } from  "@angular/common/http"; 
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'; 
 import { HttpHeaders } from '@angular/common/http';
 import 'rxjs/Rx';
 
@@ -100,11 +100,16 @@ export class CourcesService {
   }
 
   removeCource(id: number) {
-    let index = this.cources.findIndex(x => x.id == id);
-    if (index > -1) {
-      this.cources.splice(index, 1);
-    }
+    this.httpClient
+    .delete('http://localhost:3000/cources/'+id)
+    .subscribe((s) => {
+      
+      
+      console.log(s);
+    });
+
+   
+
+
   }
-
-
 }
