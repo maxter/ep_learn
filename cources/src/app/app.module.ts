@@ -19,7 +19,6 @@ import { AuthModule } from './auth/auth.module';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { UpdateItemComponent } from './update-item/update-item.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { HttpClientModule } from  '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -27,6 +26,9 @@ import { LoaderComponent } from './loader/loader.component';
 import { LoaderService } from './loader.service';
 import { LoaderInterceptor } from './loader.interceptor';
 
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -52,17 +54,34 @@ import { LoaderInterceptor } from './loader.interceptor';
     FormsModule,
     AuthModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+        }
+    })
   ],
-  providers: [AuthGuardService,   {
+  providers: [AuthGuardService,
+       {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }, LoaderService,
+  }, 
+  LoaderService,
   { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas: [
     NO_ERRORS_SCHEMA
   ]
 })
+
+
 export class AppModule { }
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
