@@ -6,6 +6,11 @@
         <div class="operations">
             <button class="btn btn-login"><i class="fa fa-user"></i> User Log In</button>
             <button (click)="logoff()" class="btn btn-logoff"><i class="fa fa-sign-out"></i> Log off</button>
+
+            <select id="selectid" #mySelect (change)='changeLanguage(mySelect.value)'>
+                <option value="en">EN</option>
+                <option value="pl">PL</option>
+             </select>
         </div>
     </div>
 </div>
