@@ -24,30 +24,6 @@
       "DurationMin": "90",
       "Description": "some description text 3",
       "Starred": "true"
-    },
-    {
-      "id": 4,
-      "Title": "4python",
-      "ConductAt": "10.01.2018",
-      "DurationMin": "90",
-      "Description": "some description text 3",
-      "Starred": "true"
-    },
-    {
-      "id": 6,
-      "Title": "6python",
-      "ConductAt": "10.01.2018",
-      "DurationMin": "90",
-      "Description": "some description text 3",
-      "Starred": "true"
-    },
-    {
-      "id": 9,
-      "Title": "9python",
-      "ConductAt": "10.01.2018",
-      "DurationMin": "90",
-      "Description": "some description text 3",
-      "Starred": "true"
     }
   ]
 }

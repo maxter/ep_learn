@@ -1,5 +1,13 @@
 <app-nav></app-nav> 
 <div class="page">
+
+    <h2>redux test</h2>
+    <ul>
+        <li *ngFor="let cource of cources$ | async; let i=index">
+          <span >{{i+1}}.</span> {{cource.Title}}
+        </li>
+    </ul>
+
     <app-section (searchCourceEvent)="search($event)"></app-section>
     <app-courceitem (deleteCourceEvent)="deleteCource($event)" [courceItem]="item" *ngFor="let item of cources"></app-courceitem>
     <span *ngIf="cources?.length == 0">No data. Feel free to add new cource</span>

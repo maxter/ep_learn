@@ -8,6 +8,10 @@ import { CourceItem } from '../cource-item';
 import { OnDestroy } from "@angular/core";
 import { Subscription } from 'rxjs';
 
+import {select, Store} from '@ngrx/store';
+import {Observable} from 'rxjs';
+import {CourceSave} from '../redux/cources.actions';
+
 @Component({
   selector: 'app-update-item',
   templateUrl: './update-item.component.html',
@@ -16,12 +20,16 @@ import { Subscription } from 'rxjs';
 })
 export class UpdateItemComponent implements OnInit {
 
+  cources$: Observable<CourceItem[]>;
+
   private id: number;
   private sub: Subscription;
   public isNew: boolean
   public courceItem : ICourceItem;
   public pageTitle : string;
-  constructor(private route: ActivatedRoute, private courcesService: CourcesService, private router: Router) { 
+  
+  constructor(private store: Store<{ cources: CourceItem[] }>, private route: ActivatedRoute, private courcesService: CourcesService, private router: Router) { 
+    this.cources$ = store.pipe(select('cources'));
   }
 
   ngOnInit() {
@@ -48,8 +56,14 @@ export class UpdateItemComponent implements OnInit {
 
   update()
   {
-      this.courcesService.updateCourceObject(this.courceItem);
-      this.router.navigate(['/cources'])
+
+    const item = new CourceItem();
+    item.Title = this.courceItem.Title;
+    this.store.dispatch(new CourceSave(item));
+    this.router.navigate(['/cources']);
+
+     /* this.courcesService.updateCourceObject(this.courceItem);
+      this.router.navigate(['/cources'])*/
   }
 
   cancel()
