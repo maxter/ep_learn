@@ -1,8 +1,8 @@
 <div class="sec_con">
     <div class="search">
-            <input placeholder="Search.."  type="text" [(ngModel)]='searchInput' (ngModelChange)='changed($event)'>
+        <input placeholder="Search.." type="text" [(ngModel)]='searchInput' (ngModelChange)='changed($event)'>
     </div>
-    <div class="add"> 
-        <button (click)="new()" class="btn"><i class="fa fa-plus"></i>Add course</button>
+    <div class="add">
+        <button (click)="new()" class="btn"><i class="fa fa-plus"></i> {{ 'demo.addCource' | translate }}</button>
     </div>
 </div>
